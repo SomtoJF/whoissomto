@@ -7,7 +7,7 @@ export default function Hero() {
 				FRANCIS <br /> SOMTOCHUKWU
 			</h1>
 			<p>FULLSTACK SOFTWARE DEVELOPER</p>
-			<p>EST. TWENTY YEARS AGO</p>
+			<p>ESTABLISHED TWENTY YEARS AGO</p>
 		</header>
 	);
 }
