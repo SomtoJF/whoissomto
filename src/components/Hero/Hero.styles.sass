@@ -1,0 +1,44 @@
+@use "../../App"
+
+#hero
+    display: grid
+    grid-template-columns: 400px 1fr
+    grid-template-rows: 2.5fr 1fr
+    height: 80vh
+    column-gap: 30px
+    #welcome-message
+        margin: 0px
+        padding: 0px
+        list-style-position: inside
+        font-family: App.$header-font
+        font-size: 0.9rem
+        font-weight: 300
+    p
+        font-size: 1.5rem
+    em
+        font-style: italic
+    &>div:first-child
+        padding-left: 5vw
+    
+    #marquee
+        grid-column: 1/3
+        font-size: max(100px, 10vw)
+        -webkit-text-stroke-width: 1px
+        -webkit-text-stroke-color: black
+        color: transparent
+        font-family: App.$header-font
+        width: 100%
+        font-weight: 500
+        border-bottom: solid 1px App.$black
+
+@media all and (max-width: 1025px)
+    #hero
+        height: max-content
+        grid-template-columns: 100vw
+        grid-template-rows: 1fr 2fr 1fr
+        #marquee
+            grid-column: 1/2
+        &>div:first-child
+            p
+                width: max(60%, 280px)
+        
