@@ -2,8 +2,11 @@
 
 #navbar
     border-bottom: 1px solid App.$black
-    height: 7vh
+    z-index: 10
+    height: 8vh
     display: flex
+    flex-direction: row-reverse
+    box-sizing: border-box
     align-items: center
     padding: 0px 5%
     margin-bottom: 30px
@@ -19,3 +22,8 @@
         list-style-type: none
         font-weight: 300
         font-size: 0.9rem
+        a
+            text-decoration: none
+            color: App.$black
+            &:hover
+                text-decoration: underline
