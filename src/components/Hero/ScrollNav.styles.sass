@@ -1,0 +1,58 @@
+@use "../../App"
+
+#scroll-container
+    height: 100%
+
+#scroll-trigger
+    height: 100%
+    width: 100%
+    display: grid
+    grid-template-columns: 25vw
+    grid-auto-flow: column
+    grid-auto-columns: 25vw
+    column-gap: 10px
+    &>.scroll-item
+        font-size: 1rem
+        display: grid
+        grid-template-rows: 87px 22px 1fr
+        row-gap: 10px
+        color: App.$black
+        width: 100%
+        height: 100%
+        text-decoration: none
+        &>p
+            font-size: 1rem
+            margin: 0px
+        &>div
+            font-family: App.$header-font
+            font-weight: 300
+        &:hover
+            text-decoration: underline
+        figure
+            background-color: App.$red
+            height: 100%
+            width: 100%
+            margin: 0px
+
+@media all and (max-width: 1025px)
+    #scroll-trigger
+        margin-left: 5%
+        grid-template-columns: 30vw
+        grid-auto-columns: 30vw
+        &>a
+            width: 100%
+            grid-template-rows: 1fr 22px 2.5fr
+
+@media all and (max-width: 750px)
+    #scroll-trigger
+        grid-template-columns: 45vw
+        grid-auto-columns: 45vw
+
+@media all and (max-width: 550px)
+    #scroll-trigger
+        grid-template-columns: 80vw
+        grid-auto-columns: 80vw
+        &>.scroll-item
+            grid-template-rows: 70px 22px 1fr
+            figure
+                height: 60%
