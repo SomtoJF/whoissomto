@@ -29,10 +29,20 @@
         &:hover
             text-decoration: underline
         figure
-            background-color: App.$red
             height: 100%
             width: 100%
             margin: 0px
+        &:nth-child(1)> figure
+            background-color: App.$red
+        &:nth-child(2n + 2)> figure
+            background-color: #C0c0c0
+        &:nth-child(3n + 3)> figure
+            background-color: #BBC6DC
+        &:nth-child(4n + 4)> figure
+            background-color: #C4BFB1
+        &:nth-child(5n + 5)> figure
+            background-color: #362DAA
+
 
 @media all and (max-width: 1025px)
     #scroll-trigger

@@ -16,24 +16,28 @@ export default function ScrollNav({ heroRef }: props) {
 	useGSAP(() => {
 		const timeline = gsap.timeline();
 
-		// Get the actual width of the element
-		const scrollElementWidth = scrollElement.current!.scrollWidth;
+		const scrollDistanceInPercent = () => {
+			// Get the actual width of the element
+			const scrollElementWidth = scrollElement.current!.scrollWidth;
 
-		// Calculate the xPercent value to position the end 5% from the right
-		const scrollToEndXPercent =
-			(-(scrollElementWidth - 0.7 * window.innerWidth) /
-				scrollElement.current!.offsetWidth) *
-			100;
+			// Calculate the xPercent value to position the end 5% from the right
+			const scrollToEndXPercent =
+				(-(scrollElementWidth - 0.65 * window.innerWidth) /
+					scrollElement.current!.offsetWidth) *
+				100;
+
+			return scrollToEndXPercent;
+		};
 
 		timeline.to("#scroll-trigger", {
-			xPercent: scrollToEndXPercent,
+			xPercent: scrollDistanceInPercent,
 			delay: 0,
 		});
 
 		ScrollTrigger.create({
 			trigger: "#welcome-message",
 			animation: timeline,
-			start: "top 9%",
+			start: "top 11%",
 			// markers: true,
 			scrub: true,
 			end: "top 1%",
