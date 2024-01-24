@@ -84,6 +84,20 @@ export default function ScrollNav({ heroRef }: props) {
 					<div>Contact</div>
 					<figure></figure>
 				</a>
+				<a
+					href={
+						"https://rewrite-blog.vercel.app/account/QSyVTLz1OyYd6si6jvEVmRJFlGh2"
+					}
+					target="_blank"
+					className="scroll-item"
+				>
+					<p>
+						I sometimes share <em>knowledge</em> and past <em>experiences</em>{" "}
+						on my blog.
+					</p>
+					<div>Blog</div>
+					<figure></figure>
+				</a>
 			</div>
 		</div>
 	);
