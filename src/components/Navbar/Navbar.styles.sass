@@ -14,16 +14,64 @@
     width: 100%
     background-color: App.$white
     font-family: App.$header-font
-    ul
-        padding: 0px
-        margin: 0px
-        display: flex
-        gap: 20px
-        list-style-type: none
-        font-weight: 300
-        font-size: 0.9rem
-        a
-            text-decoration: none
-            color: App.$black
-            &:hover
-                text-decoration: underline
+    #menu-container
+        transition: 250ms
+        width: 45px
+        height: 19px
+        background-color: transparent
+        position: absolute
+        top: 50%
+        margin-top: calc(-0.5 * 19px)
+        right: 5%
+        ul
+            display: none
+            width: 100%
+            height: 80%
+            list-style-type: decimal-leading-zero
+            margin: 0px
+            padding: 0px
+            list-style-position: inside
+            box-sizing: border-box
+            li
+                display: flex
+                justify-content: space-between
+                align-items: center
+                border-top: dotted 1px App.$black
+                width: 100%
+                height: 20%
+                a
+                    height: 90%
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    box-sizing: border-box
+                    padding: 0px 20px
+                    border-radius: 5px
+                    text-decoration: none
+                    color: App.$black
+                    font-size: 1.5rem
+                    font-weight: 600
+                    width: 100%
+                    &:hover
+                        color: App.$red
+                        background-color: App.$black
+                &:last-child
+                    border-bottom: dotted 1px App.$black
+        &:hover
+            
+            background-color: App.$red
+            width: max(20vw, 250px)
+            height: 50vh
+            border-radius: 5px
+            display: flex
+            flex-direction: column
+            justify-content: space-around
+            align-items: center
+            padding: 10px
+            box-sizing: border-box
+            div
+                height: 10%
+                display: flex
+                align-items: center
+            ul
+               display: block

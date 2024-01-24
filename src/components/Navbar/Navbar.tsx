@@ -1,27 +1,38 @@
 import "./Navbar.styles.sass";
+import { RightSquareOutlined } from "@ant-design/icons";
 
 export default function Navbar() {
 	return (
 		<nav id="navbar">
-			<ul>
-				<li>
-					<a href="#about">ABOUT</a>
-				</li>
-				<li>
-					<a href="#experience">EXPERIENCE</a>
-				</li>
-				<li>
-					<a href="#projects">PROJECTS</a>
-				</li>
-				<li>
-					<a
-						href="https://rewrite-blog.vercel.app/account/QSyVTLz1OyYd6si6jvEVmRJFlGh2"
-						target="_blank"
-					>
-						BLOG
-					</a>
-				</li>
-			</ul>
+			<div id="menu-container">
+				<div>MENU</div>
+				<ul>
+					<li>
+						<a href="#about">
+							ABOUT <RightSquareOutlined style={{ fontWeight: 700 }} />
+						</a>
+					</li>
+					<li>
+						<a href="#experience">
+							EXPERIENCE <RightSquareOutlined />
+						</a>
+					</li>
+					<li>
+						<a href="#projects">
+							PROJECTS <RightSquareOutlined />
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://rewrite-blog.vercel.app/account/QSyVTLz1OyYd6si6jvEVmRJFlGh2"
+							target="_blank"
+						>
+							BLOG
+							<RightSquareOutlined />
+						</a>
+					</li>
+				</ul>
+			</div>
 		</nav>
 	);
 }
