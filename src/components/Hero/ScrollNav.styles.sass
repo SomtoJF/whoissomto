@@ -2,6 +2,7 @@
 
 #scroll-container
     height: 100%
+    overflow-x: hidden
 
 #scroll-trigger
     height: 100%
@@ -45,6 +46,8 @@
 
 
 @media all and (max-width: 1025px)
+    #scroll-container
+        overflow-x: auto
     #scroll-trigger
         margin-left: 5%
         grid-template-columns: 30vw

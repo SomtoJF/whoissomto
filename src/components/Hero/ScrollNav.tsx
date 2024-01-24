@@ -17,6 +17,7 @@ export default function ScrollNav({ heroRef }: props) {
 		const timeline = gsap.timeline();
 
 		const scrollDistanceInPercent = () => {
+			if (window.innerWidth < 1025) return 0;
 			// Get the actual width of the element
 			const scrollElementWidth = scrollElement.current!.scrollWidth;
 
@@ -27,6 +28,11 @@ export default function ScrollNav({ heroRef }: props) {
 				100;
 
 			return scrollToEndXPercent;
+		};
+
+		const getEndPoint = () => {
+			if (window.innerWidth > 1025) return "top -50%";
+			return "top 11%";
 		};
 
 		timeline.to("#scroll-trigger", {
@@ -40,13 +46,13 @@ export default function ScrollNav({ heroRef }: props) {
 			start: "top 11%",
 			// markers: true,
 			scrub: true,
-			end: "top -50%",
+			end: getEndPoint,
 			pin: heroRef.current,
 		});
 	});
 
 	return (
-		<div style={{ overflowX: "hidden" }} id="scroll-container">
+		<div id="scroll-container">
 			<div id="scroll-trigger" ref={scrollElement}>
 				<a href={"#about"} className="scroll-item">
 					<p>
