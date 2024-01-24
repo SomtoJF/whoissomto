@@ -38,7 +38,7 @@ export default function ScrollNav({ heroRef }: props) {
 			trigger: "#welcome-message",
 			animation: timeline,
 			start: "top 11%",
-			markers: true,
+			// markers: true,
 			scrub: true,
 			end: "top -50%",
 			pin: heroRef.current,
