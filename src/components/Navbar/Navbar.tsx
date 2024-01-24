@@ -9,7 +9,7 @@ export default function Navbar() {
 				<ul>
 					<li>
 						<a href="#about">
-							ABOUT <RightSquareOutlined style={{ fontWeight: 700 }} />
+							ABOUT <RightSquareOutlined />
 						</a>
 					</li>
 					<li>
