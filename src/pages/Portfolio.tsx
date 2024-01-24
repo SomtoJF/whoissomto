@@ -6,11 +6,11 @@ export default function Portfolio() {
 	return (
 		<div id="portfolio-page">
 			<AnimatedCursor
-				color="0,0,0, 0"
-				innerSize={8}
-				outerSize={35}
+				color="0,0,0"
+				innerSize={5}
+				outerSize={5}
 				innerScale={1}
-				outerScale={1.7}
+				outerScale={9}
 				outerAlpha={0}
 				outerStyle={{
 					background: "white",
