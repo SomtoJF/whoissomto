@@ -6,7 +6,7 @@ export default function Portfolio() {
 	return (
 		<div id="portfolio-page">
 			<AnimatedCursor
-				color="0,0,0"
+				color="0,0,0,0"
 				innerSize={5}
 				outerSize={5}
 				innerScale={1}
@@ -16,6 +16,8 @@ export default function Portfolio() {
 					background: "white",
 					mixBlendMode: "exclusion",
 				}}
+				trailingSpeed={1}
+				showSystemCursor={true}
 			/>
 			<Hero />
 		</div>
