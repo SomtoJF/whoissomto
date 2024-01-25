@@ -1,25 +1,16 @@
 import {
-    Route,
-    RouterProvider,
-    createBrowserRouter,
-    createRoutesFromElements,
+    BrowserRouter,
 } from "react-router-dom";
-import Portfolio from "./pages/Portfolio";
 import "./App.sass";
-import Layout from "./Layout";
-import About from "./pages/About";
-
-const router = createBrowserRouter(
-    createRoutesFromElements(
-        <Route path="/" element={<Layout />}>
-            <Route path="/" element={<Portfolio />} />
-            <Route path="/about" element={<About />} />
-        </Route>
-    )
-);
+import AnimatedRoutes from "./AnimatedRoutes"
 
 function App() {
-    return <RouterProvider router={router} />;
+
+    return (
+        <BrowserRouter>
+            <AnimatedRoutes />
+        </BrowserRouter>
+    );
 }
 
 export default App;
