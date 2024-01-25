@@ -36,7 +36,7 @@ export default function Swiper() {
 			navigation={true}
 			modules={[Pagination, Navigation, Autoplay]}
 			className="mySwiper"
-			autoplay={{ delay: 2500 }}
+			autoplay={{ delay: 10000 }}
 			centeredSlides
 		>
 			{myProjects.map((project) => (
