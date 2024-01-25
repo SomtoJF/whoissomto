@@ -1,8 +1,11 @@
 import "./About.styles.sass";
+import somtoImage from "../assets/somto.png";
+import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
+import { motion } from "framer-motion";
 
 export default function About() {
 	return (
-		<div id="about">
+		<AnimatedPage id="about">
 			<h1>Who is Francis Somtochukwu?</h1>
 			<p>
 				Lorem ipsum dolors sit amet, cons ectetur adipisci elit, sed do eiusmod
@@ -29,7 +32,15 @@ export default function About() {
 					GITHUB
 				</a>
 			</div>
-			<figure></figure>
-		</div>
+			<motion.figure
+				initial={{ height: 0 }}
+				animate={{
+					height: "50vh",
+					transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+				}}
+			>
+				<img src={somtoImage} alt="picture of somtochukwu francis" />
+			</motion.figure>
+		</AnimatedPage>
 	);
 }
