@@ -1,5 +1,6 @@
 import { Project } from "../../Types/Projects";
 import "./ProjectCard.styles.sass";
+import { ArrowRightOutlined } from "@ant-design/icons";
 
 export default function ProjectCard(project: Project) {
 	return (
@@ -10,10 +11,12 @@ export default function ProjectCard(project: Project) {
 				<div className="links">
 					<a href={project.githubLink} target="_blank">
 						GITHUB
+						<ArrowRightOutlined style={{ marginLeft: "5px" }} />
 					</a>
 					{project.liveLink && (
 						<a href={project.liveLink} target="_blank">
 							LIVE
+							<ArrowRightOutlined style={{ marginLeft: "5px" }} />
 						</a>
 					)}
 				</div>

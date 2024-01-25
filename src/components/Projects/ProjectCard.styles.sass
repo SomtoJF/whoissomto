@@ -27,14 +27,16 @@
                 padding: 5px 10px
                 margin-right: 10px
                 text-decoration: none
-                transition: 250ms
                 color: App.$black
+                svg
+                    transition: 100ms
+                    transform: rotate(45deg)
                 &:disabled
                     color: grey
                     border: solid 1px grey
                 &:hover
-                    color: App.$white
-                    background-color: App.$black
+                    svg
+                        transform: rotate(0deg)
     h2
         font-family: App.$normal-font
         font-weight: 400
