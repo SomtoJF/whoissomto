@@ -64,25 +64,17 @@ export default function ScrollNav({ heroRef }: props) {
 				</Link>
 				<Link to={"/experience"} className="scroll-item">
 					<p>
-						<em>Where</em> he has worked in the past and his contribution to
-						making sure the organization realizes their goals.
+						My <em>Professional</em> and <em>Academic</em> background.
 					</p>
-					<div>Experience</div>
+					<div>Experience & Education</div>
 					<figure></figure>
 				</Link>
 				<Link to={"/projects"} className="scroll-item">
 					<p>
-						<em>What</em> he has worked on and the technologies that gave them
-						life.
+						What <em>projects</em> I have worked on and the{" "}
+						<em>technologies</em> that gave them life.
 					</p>
 					<div>Projects</div>
-					<figure></figure>
-				</Link>
-				<Link to={"/contact"} className="scroll-item">
-					<p>
-						<em>How</em> can you reach him? It's easier than you think
-					</p>
-					<div>Contact</div>
 					<figure></figure>
 				</Link>
 				<a
@@ -99,6 +91,11 @@ export default function ScrollNav({ heroRef }: props) {
 					<div>Blog</div>
 					<figure></figure>
 				</a>
+				<Link to={"/contact"} className="scroll-item">
+					<p>Want to reach out to me? It's easier than you think</p>
+					<div>Contact</div>
+					<figure></figure>
+				</Link>
 			</div>
 		</div>
 	);
