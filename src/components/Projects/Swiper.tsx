@@ -4,21 +4,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import { CSSProperties } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import "./Swiper.styles.sass";
 import ProjectCard from "./ProjectCard";
-
-const sliderStyles: CSSProperties = {
-	border: "1px solid black",
-	height: "80vh",
-	width: "60vw",
-	borderLeft: "none",
-	margin: "0px",
-	padding: "5% max(50px, 10%)",
-	boxSizing: "border-box",
-};
 
 export default function Swiper() {
 	useGSAP(() => {
@@ -40,7 +29,7 @@ export default function Swiper() {
 			centeredSlides
 		>
 			{myProjects.map((project) => (
-				<SwiperSlide style={sliderStyles}>
+				<SwiperSlide>
 					<ProjectCard
 						name={project.name}
 						description={project.description}
