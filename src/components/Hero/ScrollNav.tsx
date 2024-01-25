@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RefObject, useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,36 +55,36 @@ export default function ScrollNav({ heroRef }: props) {
 	return (
 		<div id="scroll-container">
 			<div id="scroll-trigger" ref={scrollElement}>
-				<a href={"#about"} className="scroll-item">
+				<Link to={"/about"} className="scroll-item">
 					<p>
 						<em>Who</em> is Francis Somtochukwu? His life, goals and vision.
 					</p>
 					<div>About</div>
 					<figure></figure>
-				</a>
-				<a href={"#experience"} className="scroll-item">
+				</Link>
+				<Link to={"/experience"} className="scroll-item">
 					<p>
 						<em>Where</em> he has worked in the past and his contribution to
 						making sure the organization realizes their goals.
 					</p>
 					<div>Experience</div>
 					<figure></figure>
-				</a>
-				<a href={"projects"} className="scroll-item">
+				</Link>
+				<Link to={"/projects"} className="scroll-item">
 					<p>
 						<em>What</em> he has worked on and the technologies that gave them
 						life.
 					</p>
 					<div>Projects</div>
 					<figure></figure>
-				</a>
-				<a href={"#contact"} className="scroll-item">
+				</Link>
+				<Link to={"/contact"} className="scroll-item">
 					<p>
 						<em>How</em> can you reach him? It's easier than you think
 					</p>
 					<div>Contact</div>
 					<figure></figure>
-				</a>
+				</Link>
 				<a
 					href={
 						"https://rewrite-blog.vercel.app/account/QSyVTLz1OyYd6si6jvEVmRJFlGh2"
