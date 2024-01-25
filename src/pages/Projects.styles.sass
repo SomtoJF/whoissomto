@@ -1,4 +1,21 @@
 @use "../App"
 
 #projects
-    padding-top: 10vh
+    padding-top: 9vh
+    min-height: 100vh
+    #link-to-gh
+        text-decoration: none
+        color: App.$black
+        font-family: App.$header-font
+        font-weight: 300
+        width: 180px
+        position: relative
+        left: 50%
+        margin-left: calc(-0.5 * 180px)
+        bottom: -30px
+        svg
+            transition: 100ms
+            transform: rotate(45deg)
+        &:hover
+            svg
+                transform: rotate(0deg)
