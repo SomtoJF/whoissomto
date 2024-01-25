@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Navbar.styles.sass";
 import { RightSquareOutlined } from "@ant-design/icons";
 
@@ -8,19 +9,24 @@ export default function Navbar() {
 				<div>MENU</div>
 				<ul>
 					<li>
-						<a href="#about">
+						<Link to="/">
+							HOME <RightSquareOutlined />
+						</Link>
+					</li>
+					<li>
+						<Link to="/about">
 							ABOUT <RightSquareOutlined />
-						</a>
+						</Link>
 					</li>
 					<li>
-						<a href="#experience">
+						<Link to="/experience">
 							EXPERIENCE <RightSquareOutlined />
-						</a>
+						</Link>
 					</li>
 					<li>
-						<a href="#projects">
+						<Link to="/projects">
 							PROJECTS <RightSquareOutlined />
-						</a>
+						</Link>
 					</li>
 					<li>
 						<a
