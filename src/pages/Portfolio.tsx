@@ -1,11 +1,12 @@
 import Hero from "../components/Hero/Hero";
 import AnimatedCursor from "react-animated-cursor";
 import "./Portfolio.styles.sass";
+import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 
 export default function Portfolio() {
 	return (
-		<div id="portfolio-page">
-			{window.innerWidth > 900 && (
+		<AnimatedPage id="portfolio-page">
+			{window.innerWidth > 900 ? (
 				<AnimatedCursor
 					color="0,0,0,0"
 					innerSize={5}
@@ -20,8 +21,10 @@ export default function Portfolio() {
 					trailingSpeed={1}
 					showSystemCursor={true}
 				/>
+			) : (
+				<></>
 			)}
 			<Hero />
-		</div>
+		</AnimatedPage>
 	);
 }
