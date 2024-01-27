@@ -15,41 +15,37 @@ export default function ScrollNav({ heroRef }: props) {
 	const scrollElement = useRef<HTMLDivElement>(null);
 
 	useGSAP(() => {
-		const timeline = gsap.timeline();
+		if (window.innerWidth > 1025) {
+			const timeline = gsap.timeline();
 
-		const scrollDistanceInPercent = () => {
-			if (window.innerWidth < 1025) return 0;
-			// Get the actual width of the element
-			const scrollElementWidth = scrollElement.current!.scrollWidth;
+			const scrollDistanceInPercent = () => {
+				// Get the actual width of the element
+				const scrollElementWidth = scrollElement.current!.scrollWidth;
 
-			// Calculate the xPercent value to position the end 5% from the right
-			const scrollToEndXPercent =
-				(-(scrollElementWidth - 0.65 * window.innerWidth) /
-					scrollElement.current!.offsetWidth) *
-				100;
+				// Calculate the xPercent value to position the end 5% from the right
+				const scrollToEndXPercent =
+					(-(scrollElementWidth - 0.5 * window.innerWidth) /
+						scrollElement.current!.offsetWidth) *
+					100;
 
-			return scrollToEndXPercent;
-		};
+				return scrollToEndXPercent;
+			};
 
-		const getEndPoint = () => {
-			if (window.innerWidth > 1025) return "top -50%";
-			return "top 11%";
-		};
+			timeline.to("#scroll-trigger", {
+				xPercent: scrollDistanceInPercent,
+				delay: 0,
+			});
 
-		timeline.to("#scroll-trigger", {
-			xPercent: scrollDistanceInPercent,
-			delay: 0,
-		});
-
-		ScrollTrigger.create({
-			trigger: "#welcome-message",
-			animation: timeline,
-			start: "top 11%",
-			// markers: true,
-			scrub: true,
-			end: getEndPoint,
-			pin: heroRef.current,
-		});
+			ScrollTrigger.create({
+				trigger: "#welcome-message",
+				animation: timeline,
+				start: "top 11%",
+				markers: true,
+				scrub: true,
+				end: "top -50%",
+				pin: heroRef.current,
+			});
+		}
 	});
 
 	return (
