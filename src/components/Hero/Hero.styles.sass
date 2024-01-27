@@ -26,7 +26,7 @@
     #marquee
         height: fit-content
         grid-column: 1/3
-        font-size: max(100px, 15vw)
+        font-size: max(120px, 15vw)
         -webkit-text-stroke-width: 1px
         -webkit-text-stroke-color: black
         color: transparent
@@ -40,8 +40,11 @@
         height: max-content
         grid-template-columns: 100vw
         grid-template-rows: 1fr 2fr 1fr
+        // row-gap: 5%
         #marquee
             grid-column: 1/2
+            font-weight: bold
+            color: App.$grey
         &>div:first-child
             p
                 width: max(60%, 280px)
