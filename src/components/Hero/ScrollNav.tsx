@@ -24,7 +24,7 @@ export default function ScrollNav({ heroRef }: props) {
 
 				// Calculate the xPercent value to position the end 5% from the right
 				const scrollToEndXPercent =
-					(-(scrollElementWidth - 0.5 * window.innerWidth) /
+					(-(scrollElementWidth - 0.6 * window.innerWidth) /
 						scrollElement.current!.offsetWidth) *
 					100;
 
@@ -39,10 +39,10 @@ export default function ScrollNav({ heroRef }: props) {
 			ScrollTrigger.create({
 				trigger: "#welcome-message",
 				animation: timeline,
-				start: "top 11%",
+				start: "top 15%",
 				markers: true,
 				scrub: true,
-				end: "top -50%",
+				end: "top -12%",
 				pin: heroRef.current,
 			});
 		}
