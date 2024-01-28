@@ -46,7 +46,6 @@ export default function ScrollNav({ heroRef }: props) {
 				pin: "#hero",
 				anticipatePin: 1,
 				pinnedContainer: heroRef.current,
-				pinReparent: true,
 			});
 		}
 	});
