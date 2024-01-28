@@ -1,11 +1,26 @@
+import { Suspense } from "react";
 import { Project } from "../../Types/Projects";
 import "./ProjectCard.styles.sass";
-import { ArrowRightOutlined } from "@ant-design/icons";
+import { ArrowRightOutlined, LoadingOutlined } from "@ant-design/icons";
 
 export default function ProjectCard(project: Project) {
 	return (
 		<div className="project-card">
-			<figure></figure>
+			<figure
+				style={{
+					backgroundColor: project.mockupUrl === "" ? "#D5D5D7" : "initial",
+				}}
+			>
+				<Suspense fallback={<LoadingOutlined />}>
+					<video
+						src={project.mockupUrl}
+						loop
+						controls={false}
+						autoPlay
+						playsInline
+					/>
+				</Suspense>
+			</figure>
 			<div className="name-links">
 				<h2>{project.name}</h2>
 				<div className="links">
