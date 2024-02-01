@@ -1,0 +1,28 @@
+@use "../App"
+
+#experience-education
+    padding: 10vh 10%
+    width: 100%
+    min-height: 100vh
+    box-sizing: border-box
+    &>h1
+        font-family: App.$header-font
+        font-size: 4rem
+        font-weight: 300
+    #link-to-projects
+        display: block
+        align-self: center
+        text-decoration: none
+        color: App.$black
+        font-family: App.$header-font
+        font-weight: 300
+        width: 180px
+        position: relative
+        left: 50%
+        margin-left: calc(-0.5 * 180px)
+        svg
+            transition: 100ms
+            transform: rotate(45deg)
+        &:hover
+            svg
+                transform: rotate(0deg)
