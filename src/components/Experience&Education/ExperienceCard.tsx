@@ -9,7 +9,7 @@ interface props {
 const ExperienceCard = ({ data }: props) => {
 	return (
 		<article className="experience-card">
-			<h3>{data.position}</h3>
+			<h4>{data.position}</h4>
 			<div className="location-period">
 				<p>{data.company}</p>
 				<p>{`${data.period.start} - ${data.period.end}`}</p>
