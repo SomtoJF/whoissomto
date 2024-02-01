@@ -4,6 +4,7 @@ import "./Experience.styles.sass";
 import { Link } from "react-router-dom";
 import ExperienceComponent from "../components/Experience&Education/Experience";
 import EducationComponent from "../components/Experience&Education/Education";
+import Skills from "../components/Experience&Education/Skills";
 
 export default function Experience() {
 	return (
@@ -11,6 +12,7 @@ export default function Experience() {
 			<h1>Experience & Education</h1>
 			<ExperienceComponent />
 			<EducationComponent />
+			<Skills />
 			<Link to={"/projects"} id="link-to-projects">
 				VIEW MY PROJECTS <ArrowRightOutlined />
 			</Link>
