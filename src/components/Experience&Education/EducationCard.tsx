@@ -3,7 +3,6 @@ import { Education } from "../../Types/Education";
 export default function EducationCard({
 	program,
 	school,
-	department,
 	period,
 	location,
 }: Education) {
