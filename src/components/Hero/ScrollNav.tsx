@@ -64,7 +64,7 @@ export default function ScrollNav({ heroRef }: props) {
 					<p>
 						My <em>Professional</em> and <em>Academic</em> background.
 					</p>
-					<div>Experience & Education</div>
+					<div>Experience, Education & Skills</div>
 					<figure></figure>
 				</Link>
 				<Link to={"/projects"} className="scroll-item">
