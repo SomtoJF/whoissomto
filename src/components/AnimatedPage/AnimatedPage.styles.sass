@@ -2,8 +2,13 @@
     
 .inner
     background-color: black
+    width: min(100vw, 2000px)
+    position: relative
+    left: 50%
+    margin-left: calc(-0.5 * min(100vw, 2000px))
     .perspective
         background-color: App.$white
+        width: min(100vw, 2000px)
     .slide
         position: fixed
         top: 0
