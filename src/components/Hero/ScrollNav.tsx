@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RefObject, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Link } from "react-router-dom";
+import { ArrowRightOutlined } from "@ant-design/icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,23 +58,27 @@ export default function ScrollNav({ heroRef }: props) {
 					<p>
 						<em>Who</em> is Francis Somtochukwu? His life, goals and vision.
 					</p>
-					<div>About</div>
-					<figure></figure>
+					<figure>
+						{" "}
+						Who am I <ArrowRightOutlined />
+					</figure>
 				</Link>
 				<Link to={"/experience"} className="scroll-item">
 					<p>
 						My <em>Professional</em> and <em>Academic</em> background.
 					</p>
-					<div>Experience, Education & Skills</div>
-					<figure></figure>
+					<figure>
+						Experience, Education & Skills. <ArrowRightOutlined />
+					</figure>
 				</Link>
 				<Link to={"/projects"} className="scroll-item">
 					<p>
 						What <em>projects</em> I have worked on and the{" "}
 						<em>technologies</em> that gave them life.
 					</p>
-					<div>Projects</div>
-					<figure></figure>
+					<figure>
+						Projects. <ArrowRightOutlined />
+					</figure>
 				</Link>
 				<a
 					href={
@@ -86,13 +91,15 @@ export default function ScrollNav({ heroRef }: props) {
 						I sometimes share <em>knowledge</em> and past <em>experiences</em>{" "}
 						on my blog.
 					</p>
-					<div>Blog</div>
-					<figure></figure>
+					<figure>
+						My Blog. <ArrowRightOutlined />
+					</figure>
 				</a>
 				<Link to={"/contact"} className="scroll-item">
 					<p>Want to reach out to me? It's easier than you think</p>
-					<div>Contact</div>
-					<figure></figure>
+					<figure>
+						Contact Me. <ArrowRightOutlined />
+					</figure>
 				</Link>
 			</div>
 		</div>
