@@ -2,7 +2,7 @@
 
 #scroll-container
     height: 100%
-    overflow-x: hidden
+    overflow-x: hidden 
 
 #scroll-trigger
     height: 100%
@@ -15,7 +15,7 @@
     &>.scroll-item
         font-size: 1rem
         display: grid
-        grid-template-rows: 87px 22px 1fr
+        grid-template-rows: 87px 1fr
         row-gap: 10px
         color: App.$black
         width: 100%
@@ -27,12 +27,29 @@
         &>div
             font-family: App.$header-font
             font-weight: 300
-        &:hover
+        &:hover>*:not(figure)
             text-decoration: underline
+        &:hover
+          svg
+            transform: rotate(0deg)
         figure
+            border-radius: 5px
             height: 100%
             width: 100%
             margin: 0px
+            display: flex
+            align-items: flex-end
+            box-sizing: border-box
+            padding: 5%
+            font-size: 2rem
+            color: App.$white
+            font-family: App.$header-font
+            text-decoration: none
+            font-weight: 600
+            gap: 10px
+            svg
+              transform: rotate(45deg)
+              transition: 250ms
         &:nth-child(1)> figure
             background-color: App.$red
         &:nth-child(2n + 2)> figure
@@ -54,7 +71,7 @@
         grid-auto-columns: 30vw
         &>a
             width: 100%
-            grid-template-rows: 1fr 22px 2.5fr
+            grid-template-rows: 1fr 2.5fr
 
 @media all and (max-width: 750px)
     #scroll-trigger
@@ -66,4 +83,4 @@
         grid-template-columns: 80vw
         grid-auto-columns: 80vw
         &>.scroll-item
-            grid-template-rows: 70px 22px 280px
+            grid-template-rows: 70px 280px
