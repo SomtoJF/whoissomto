@@ -7,7 +7,7 @@ export default function Hero() {
 	const heroRef = useRef<HTMLElement>(null);
 	return (
 		<section id="hero" ref={heroRef}>
-			<div>
+			<div id="welcome-section">
 				<ul id="welcome-message">
 					<li>WELCOME TO MY WORLD</li>
 				</ul>

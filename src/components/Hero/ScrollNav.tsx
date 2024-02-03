@@ -31,11 +31,19 @@ export default function ScrollNav({ heroRef }: props) {
 
 				return scrollToEndXPercent;
 			};
-
-			timeline.to("#scroll-trigger", {
-				xPercent: scrollDistanceInPercent,
-				delay: 0,
+			timeline.to("#welcome-section", {
+				opacity: 0,
+				duration: 0.1,
 			});
+
+			timeline.to(
+				"#scroll-trigger",
+				{
+					xPercent: scrollDistanceInPercent,
+					delay: 0,
+				},
+				"<25%"
+			);
 
 			ScrollTrigger.create({
 				trigger: "#welcome-message",
