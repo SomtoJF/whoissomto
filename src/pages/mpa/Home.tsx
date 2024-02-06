@@ -1,7 +1,7 @@
-import Hero from "../components/Hero/Hero";
+import Hero from "../../components/Hero/Hero";
 import AnimatedCursor from "react-animated-cursor";
 import "./Home.styles.sass";
-import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
+import AnimatedPage from "../../components/AnimatedPage/AnimatedPage";
 
 export default function Home() {
 	return (

@@ -1,6 +1,6 @@
 import "./About.styles.sass";
-import somtoImage from "../assets/somto.png";
-import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
+import somtoImage from "../../assets/somto.png";
+import AnimatedPage from "../../components/AnimatedPage/AnimatedPage";
 import { motion } from "framer-motion";
 
 export default function About() {

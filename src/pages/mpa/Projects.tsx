@@ -1,6 +1,6 @@
 import { ArrowRightOutlined } from "@ant-design/icons";
-import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
-import Swiper from "../components/Projects/Swiper";
+import AnimatedPage from "../../components/AnimatedPage/AnimatedPage";
+import Swiper from "../../components/Projects/Swiper";
 import "./Projects.styles.sass";
 
 export default function Projects() {
