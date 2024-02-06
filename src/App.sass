@@ -7,6 +7,8 @@ $orange: #FF725E
 $red: #982925
 $grey: #D5D5D7
 
+$spa-black: #050505
+
 $header-font: 'Roboto', sans-serif
 $normal-font: 'Playfair Display', serif
 
@@ -18,3 +20,21 @@ body, html
     background-color: $white
     color: $black
     overflow-x: hidden
+
+@mixin link($line-color: #050505)
+    display: inline-block
+    position: relative
+    &::after
+        content: ''
+        position: absolute
+        width: 100%
+        transform: scaleX(0)
+        height: 2px
+        bottom: 0
+        left: 0
+        background-color: $line-color
+        transform-origin: bottom right
+        transition: transform 0.25s ease-out
+    &:hover::after
+        transform: scaleX(1)
+        transform-origin: bottom left
