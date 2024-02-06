@@ -1,8 +1,8 @@
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
 import { ReactLenis } from "@studio-freight/react-lenis";
 
-export default function Layout() {
+export default function MultiPageLayout() {
 	return (
 		<ReactLenis root options={{ lerp: 0.07, duration: 1.5, smoothTouch: true }}>
 			<Navbar />
