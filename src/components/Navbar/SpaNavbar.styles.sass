@@ -1,0 +1,44 @@
+@use "../../App"
+
+#spa-navbar
+    display: flex
+    justify-content: space-between
+    align-items: center
+    z-index: 10
+    height: 10vh
+    box-sizing: border-box
+    padding: 0px 5%
+    position: fixed
+    width: 100%
+    background-color: App.$white
+    font-family: App.$header-font
+    ul
+        display: flex
+        justify-content: space-between
+        list-style-type: none
+        gap: 20px
+        a
+            text-decoration: none
+            color: inherit
+            display: inline-block
+            position: relative
+            &::after
+                content: ''
+                position: absolute
+                width: 100%
+                transform: scaleX(0)
+                height: 2px
+                bottom: 0
+                left: 0
+                background-color: App.$black
+                transform-origin: bottom right
+                transition: transform 0.25s ease-out
+            &:hover::after
+                transform: scaleX(1)
+                transform-origin: bottom left
+
+@media all and (max-width:700px) 
+    #spa-navbar>div
+        span
+            display: none
+                
