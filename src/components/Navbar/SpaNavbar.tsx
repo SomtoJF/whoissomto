@@ -19,7 +19,7 @@ export default function SpaNavbar() {
 			animation: timeline,
 			start: "top 10%",
 			scrub: true,
-			end: "top -12%",
+			end: "top 0%",
 		});
 	});
 	return (
