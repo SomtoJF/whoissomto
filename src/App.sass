@@ -38,3 +38,17 @@ body, html
     &:hover::after
         transform: scaleX(1)
         transform-origin: bottom left
+
+@mixin tagsContainer()
+    margin-top: 20px
+    display: flex
+    gap: 10px
+    flex-wrap: wrap
+    &>*
+        display: block
+    span
+        font-family: $header-font
+        font-size: 0.7rem
+        border: solid 1px $black
+        font-weight: 300
+        padding: 5px 10px
