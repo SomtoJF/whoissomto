@@ -10,13 +10,15 @@
         padding: 0px
         margin: 0px
         width: 100%
-        height: 50vh
-        background-color: App.$white
-        border-radius: 20px
+        height: 40vh
+        background-color: App.$black
+        border-radius: 5px
+        display: flex
+        justify-content: center
+        align-items: center
         img
-            opacity: 0
-            width: 100%
-            height: 100%
+            width: 80%
+            height: auto
     .title-links
         display: flex
         justify-content: space-between
@@ -34,6 +36,16 @@
                 &:hover
                     svg
                         transform: rotate(0deg)
+    &>p
+        margin: 0px
+    .technologies
+        @include App.tagsContainer()
     &:hover
         color: App.$white
+        
+
+@media all and (max-width: 810px)
+    .spa-project-card
+        figure
+            height: 30vh
                     
