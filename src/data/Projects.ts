@@ -1,7 +1,7 @@
 import { Project } from "../Types/Projects";
-// import rebaseMockup from "../assets/rebase.mov";
-// import threeMockup from "../assets/Three.mov";
-// import rewriteMockup from "../assets/rewrite.mov";
+import rebaseMockup from "../assets/rebase.png";
+import threeMockup from "../assets/three.png";
+import rewriteMockup from "../assets/rewrite.png";
 
 const myProjects: Project[] = [
 	{
@@ -10,7 +10,7 @@ const myProjects: Project[] = [
 			"A fullstack blog which empowers writers with the freedom of markdown ",
 		liveLink: "https://rewrite-blog.vercel.app",
 		githubLink: "https://github.com/somtojf/rewrite",
-		mockupUrl: "",
+		mockupUrl: rewriteMockup,
 		technologies: [
 			"React",
 			"GraphQL",
@@ -37,7 +37,7 @@ const myProjects: Project[] = [
 			"A frontend-only e-commerce website with a captivating user interface",
 		liveLink: "https://basic-dept-wine.vercel.app/",
 		githubLink: "https://github.com/SomtoJF/Rebase",
-		mockupUrl: "",
+		mockupUrl: rebaseMockup,
 		technologies: ["React", "TypeScript", "SASS", "GSAP", "Zustand", "MUI"],
 	},
 	{
@@ -53,7 +53,7 @@ const myProjects: Project[] = [
 			"A 3D simulation of the solar system built in Three.js. The planets are mapped with textures from the NASA website.",
 		liveLink: "https://somtojf-three.netlify.app/",
 		githubLink: "https://github.com/SomtoJF/Three",
-		mockupUrl: "",
+		mockupUrl: threeMockup,
 		technologies: ["JavaScript", "CSS", "ThreeJS", "GSAP", "dat.gui"],
 	},
 ];
