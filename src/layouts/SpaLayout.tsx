@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import SpaNavbar from "../components/Navbar/SpaNavbar";
+import SpaNavbar from "../components/spa/SpaNavbar";
 
 export default function SinglePageLayout() {
 	return (
