@@ -2,7 +2,7 @@ interface Education {
 	program: string;
 	school: string;
 	department: string;
-	period: { start: number; end: number };
+	period: { start: string; end: string };
 	location: string;
 }
 
