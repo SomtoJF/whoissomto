@@ -1,0 +1,23 @@
+@use '../../../App'
+
+.info-list-item
+    font-weight: 300
+    .content
+        display: grid
+        grid-template-columns: 1fr 2fr
+    p
+        margin: 0px
+        line-height: 30px
+    hr
+        margin: 5% 0px
+    h4
+        font-weight: 300
+        color: #36454F
+        svg
+            transform: scaleX(-1)
+            margin-right: 5px
+@media all and (max-width: 1000px)
+    .info-list-item
+        .content
+            display: flex
+            flex-direction: column
