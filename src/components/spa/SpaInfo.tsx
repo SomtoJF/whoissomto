@@ -43,7 +43,11 @@ const personalData = [
 					an Examination platform which uses Text Similarity (with Cosine
 					Similarity) and Textual Entailment to grade open-ended questions.
 					Repository{" "}
-					<a href="http://" target="_blank" rel="noopener noreferrer">
+					<a
+						href="https://github.com/SomtoJF/Academia"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						here
 					</a>
 				</p>
