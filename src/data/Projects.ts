@@ -2,6 +2,7 @@ import { Project } from "../Types/Projects";
 import rebaseMockup from "../assets/rebase.png";
 import threeMockup from "../assets/three.png";
 import rewriteMockup from "../assets/rewrite.png";
+import academiaMockup from "../assets/academia.png";
 
 const myProjects: Project[] = [
 	{
@@ -24,12 +25,24 @@ const myProjects: Project[] = [
 		],
 	},
 	{
-		name: "Who is Somto?",
-		description: "My portfolio website",
-		liveLink: "https://somto-chi.vercel.app",
-		githubLink: "https://github.com/somtojf/whoissomto",
-		mockupUrl: "",
-		technologies: ["React", "TypeScript", "SASS", "GSAP", "Framer-Motion"],
+		name: "Academia",
+		description:
+			"An examination platform capable of grading open-ended questions using text similarity",
+		liveLink: "https://academia-zeta-three.vercel.app/",
+		githubLink: "https://github.com/somtojf/academia",
+		mockupUrl: academiaMockup,
+		technologies: [
+			"TypeScript",
+			"Python",
+			"Express",
+			"Flask",
+			"Tensorflow",
+			"React",
+			"Ant-design",
+			"GraphQL",
+			"Cosine similarity",
+			"Text entailment",
+		],
 	},
 	{
 		name: "REBASE",
@@ -41,13 +54,6 @@ const myProjects: Project[] = [
 		technologies: ["React", "TypeScript", "SASS", "GSAP", "Zustand", "MUI"],
 	},
 	{
-		name: "Jobit",
-		description: "A Mobile Application for searching for developer jobs ",
-		githubLink: "https://github.com/SomtoJF/JobIt",
-		mockupUrl: "",
-		technologies: ["React Native", "JavaScript", "Expo Router", "Expo Go"],
-	},
-	{
 		name: "Three",
 		description:
 			"A 3D simulation of the solar system built in Three.js. The planets are mapped with textures from the NASA website.",
@@ -55,6 +61,13 @@ const myProjects: Project[] = [
 		githubLink: "https://github.com/SomtoJF/Three",
 		mockupUrl: threeMockup,
 		technologies: ["JavaScript", "CSS", "ThreeJS", "GSAP", "dat.gui"],
+	},
+	{
+		name: "Jobit",
+		description: "A Mobile Application for searching for developer jobs ",
+		githubLink: "https://github.com/SomtoJF/JobIt",
+		mockupUrl: "",
+		technologies: ["React Native", "JavaScript", "Expo Router", "Expo Go"],
 	},
 ];
 

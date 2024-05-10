@@ -1,11 +1,13 @@
-import Hero from "../../components/Hero/Hero";
+import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
+import SpaHero from "../components/spa/SpaHero";
+import SpaProjects from "../components/spa/SpaProjects";
 import AnimatedCursor from "react-animated-cursor";
-import "./Home.styles.sass";
-import AnimatedPage from "../../components/AnimatedPage/AnimatedPage";
+import "./Portfolio.styles.sass";
+import SpaInfo from "../components/spa/SpaInfo";
 
-export default function Home() {
+export default function Portfolio() {
 	return (
-		<AnimatedPage id="portfolio-page">
+		<AnimatedPage id="spa-portfolio">
 			{window.innerWidth > 900 ? (
 				<AnimatedCursor
 					color="0,0,0,0"
@@ -24,7 +26,9 @@ export default function Home() {
 			) : (
 				<></>
 			)}
-			<Hero />
+			<SpaHero />
+			<SpaProjects />
+			<SpaInfo />
 		</AnimatedPage>
 	);
 }
