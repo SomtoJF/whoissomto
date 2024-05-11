@@ -30,6 +30,27 @@ const myExperience: Experience[] = [
 		],
 		position: "Software Engineer Intern",
 	},
+	{
+		company: "Sefara Inc",
+		location: "Remote, Nigeria.",
+		period: { start: "Febrary 2024", end: "Present" },
+		description:
+			"Build the core client and server-side components for our online platform, designed to streamline procurement and payment processes for African businesses.",
+		achievements: [],
+		softwareTools: [
+			"TypeScript",
+			"NestJS",
+			"NextJS",
+			"SASS",
+			"TailwindCSS",
+			"PostreSQL",
+			"TypeORM",
+			"AWS Textract",
+			"Temporal",
+			"Jira",
+		],
+		position: "Software Engineer",
+	},
 ];
 
 export default myExperience;

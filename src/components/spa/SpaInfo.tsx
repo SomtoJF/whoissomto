@@ -3,6 +3,7 @@ import myEducation from "../../data/Education";
 import InfoListItem from "./InfoListItem";
 import "./styles/SpaInfo.styles.sass";
 import { v4 as uuidv4 } from "uuid";
+import myExperience from "../../data/Experience";
 
 const personalData = [
 	{
@@ -26,7 +27,28 @@ const personalData = [
 	},
 	{
 		title: "Experience",
-		render: () => <></>,
+		render: () => (
+			<div id="experience-container">
+				{myExperience.map((experience, index) => {
+					if (index === myExperience.length - 1) {
+						return (
+							<>
+								<h3>
+									{experience.position} | {experience.company}
+								</h3>
+								<small>{`${experience.period.start} - ${experience.period.end}`}</small>
+								<p>{experience.location}</p>
+								<p>
+									<b>Role Description: </b>
+									{experience.description}
+									<a href="#"> See More</a>
+								</p>
+							</>
+						);
+					}
+				})}
+			</div>
+		),
 	},
 	{
 		title: "Education",
