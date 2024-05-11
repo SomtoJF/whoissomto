@@ -1,0 +1,74 @@
+@use '../../../App'
+
+#footer
+    svg
+        background-color: App.$white
+        width: 100%
+        border-radius: 0px 0px 15px 15px
+        text
+            color: App.$black
+            font-size: 6px
+            text-transform: uppercase
+            font-family: App.$spa-header-font
+
+.footer-content-container
+    height: 60vh
+    background-color: App.$black
+    position: relative
+    display: flex
+    overflow: hidden
+    font-family: App.$header-font
+    &>div
+        height: 100%
+        width: 100%
+        background-color: black
+        display: flex
+        justify-content: center
+        padding: 5% 2%
+        box-sizing: border-box
+        align-items: center
+        flex-direction: column
+        align-items: flex-start
+        h1
+            color: App.$white
+            font-family: App.$spa-header-font
+            font-size: clamp(40px, 7vw, 94px)
+            font-weight: 200
+        a
+            text-decoration: underline
+            font-weight: 300
+            color: App.$white
+        &>a
+            font-size: clamp(16px, 5vw, 32px)
+            margin: 5% 0px
+        hr
+            background-color: App.$grey
+            width: 100%
+            color: App.$white
+            margin: 10px 0px
+        #links-copy
+            position: absolute
+            width: 100%
+            bottom: 0px
+        #all-links
+            padding-right: 5%
+            box-sizing: border-box
+            font-weight: 300
+            font-size: clamp(13px, 3vw, 16px)
+            display: flex
+            color: App.$white
+            align-items: center
+            width: 100%
+            justify-content: space-between
+            &>div
+                display: flex
+                gap: 20px
+                a
+                    text-decoration: none
+
+@media all and (max-width: 1000px)
+    #info
+        border-radius: 15px
+    #footer
+        svg
+            display: none

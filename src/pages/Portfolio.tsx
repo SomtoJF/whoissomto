@@ -4,6 +4,7 @@ import SpaProjects from "../components/spa/SpaProjects";
 import AnimatedCursor from "react-animated-cursor";
 import "./Portfolio.styles.sass";
 import SpaInfo from "../components/spa/SpaInfo";
+import Footer from "../components/spa/Footer";
 
 export default function Portfolio() {
 	return (
@@ -29,6 +30,7 @@ export default function Portfolio() {
 			<SpaHero />
 			<SpaProjects />
 			<SpaInfo />
+			<Footer />
 		</AnimatedPage>
 	);
 }
