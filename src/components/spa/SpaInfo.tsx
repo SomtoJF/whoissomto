@@ -1,7 +1,6 @@
 import skills from "../../data/Skills";
 import myEducation from "../../data/Education";
 import InfoListItem from "./InfoListItem";
-import "./styles/SpaInfo.styles.sass";
 import { v4 as uuidv4 } from "uuid";
 import myExperience from "../../data/Experience";
 
@@ -28,18 +27,18 @@ const personalData = [
 	{
 		title: "Experience",
 		render: () => (
-			<div id="experience-container">
+			<div id="experience-container" className="flex flex-col gap-[10%]">
 				{myExperience.map((experience, index) => {
 					if (index === myExperience.length - 1) {
 						return (
 							<>
-								<h3>
+								<h3 className="m-0 flex text-base font-normal">
 									{experience.position} | {experience.company}
 								</h3>
-								<small>{`${experience.period.start} - ${experience.period.end}`}</small>
+								<small className="my-2.5">{`${experience.period.start} - ${experience.period.end}`}</small>
 								<p>{experience.location}</p>
 								<p>
-									<b>Role Description: </b>
+									<b className="font-normal">Role Description: </b>
 									{experience.description}
 									<a href="#"> See More</a>
 								</p>
@@ -53,18 +52,18 @@ const personalData = [
 	{
 		title: "Education",
 		render: () => (
-			<div id="education-container">
-				<h3>{myEducation.program}</h3>
-				<small>{`${myEducation.period.start} - ${myEducation.period.end}`}</small>
+			<div id="education-container" className="flex flex-col gap-[10%]">
+				<h3 className="m-0 flex text-base font-normal">{myEducation.program}</h3>
+				<small className="my-2.5">{`${myEducation.period.start} - ${myEducation.period.end}`}</small>
 				<p>
 					{myEducation.school}, {myEducation.location}
 				</p>
 				<p>
-					<b>Final Year Project:</b> Titled "Design and Development of an
-					AI-Enhanced Online Examination Platform" Involved the engineering of
-					an Examination platform which uses Text Similarity (with Cosine
-					Similarity) and Textual Entailment to grade open-ended questions.
-					Repository{" "}
+					<b className="font-normal">Final Year Project:</b> Titled "Design and
+					Development of an AI-Enhanced Online Examination Platform" Involved
+					the engineering of an Examination platform which uses Text Similarity
+					(with Cosine Similarity) and Textual Entailment to grade open-ended
+					questions. Repository{" "}
 					<a
 						href="https://github.com/SomtoJF/Academia"
 						target="_blank"
@@ -79,9 +78,14 @@ const personalData = [
 	{
 		title: "Skills",
 		render: () => (
-			<div id="skills-container">
+			<div id="skills-container" className="flex flex-wrap gap-2.5">
 				{skills.sort().map((skill) => (
-					<span className="skill-item">{skill.toUpperCase()}</span>
+					<span
+						key={skill}
+						className="border border-solid border-black px-1.5 py-0.5 text-[0.7rem] font-light"
+					>
+						{skill.toUpperCase()}
+					</span>
 				))}
 			</div>
 		),
@@ -90,8 +94,16 @@ const personalData = [
 
 export default function SpaInfo() {
 	return (
-		<div id="info">
-			<h1 id="info-header">Info</h1>
+		<div
+			id="info"
+			className="relative z-[1] mt-[-5vh] min-h-screen rounded-t-[15px] bg-white px-[5%] pb-[10%] pt-[2.5%] font-header max-[1000px]:rounded-[15px] [&_a]:font-normal [&_a]:text-inherit [&_a]:no-underline hover:[&_a]:underline"
+		>
+			<h1
+				id="info-header"
+				className="font-display text-[6rem] font-extralight"
+			>
+				Info
+			</h1>
 			{personalData.map((data) => (
 				<InfoListItem key={uuidv4()} title={data.title}>
 					{data.render()}

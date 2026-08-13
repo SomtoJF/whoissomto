@@ -1,16 +1,12 @@
-import {
-    BrowserRouter,
-} from "react-router-dom";
-import "./App.sass";
-import AnimatedRoutes from "./AnimatedRoutes"
+import { BrowserRouter } from "react-router-dom";
+import AnimatedRoutes from "./AnimatedRoutes";
 
 function App() {
-
-    return (
-        <BrowserRouter>
-            <AnimatedRoutes />
-        </BrowserRouter>
-    );
+	return (
+		<BrowserRouter>
+			<AnimatedRoutes />
+		</BrowserRouter>
+	);
 }
 
 export default App;

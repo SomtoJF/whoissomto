@@ -1,6 +1,5 @@
 import myProjects from "../../data/Projects";
 import SpaProjectcard from "./SpaProjectcard";
-import "./styles/Projects.styles.sass";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,10 +13,7 @@ export default function Projects() {
 			const scrollElement = document.getElementById("projects-container");
 
 			const scrollDistanceInPercent = () => {
-				// Get the actual width of the element
 				const scrollElementWidth = scrollElement!.scrollWidth;
-
-				// Calculate the xPercent value to position the end 5% from the right
 				const scrollToEndXPercent =
 					(-(scrollElementWidth - 0.9 * window.innerWidth) /
 						scrollElement!.offsetWidth) *
@@ -35,7 +31,6 @@ export default function Projects() {
 				trigger: "#spa-projects-heading",
 				animation: timeline,
 				start: "top 10%",
-				// markers: true,
 				scrub: true,
 				end: "top -50%",
 				pin: "#spa-projects",
@@ -44,8 +39,11 @@ export default function Projects() {
 		}
 	});
 	return (
-		<div id="trigger">
-			<div id="projects-container">
+		<div id="trigger" className="max-[650px]:overflow-auto">
+			<div
+				id="projects-container"
+				className="grid auto-cols-[max(350px,35vw)] grid-flow-col grid-cols-[repeat(3,max(350px,35vw))] grid-rows-1 gap-x-[30px]"
+			>
 				{myProjects.map((project, index) => (
 					<SpaProjectcard {...project} key={index + 0.223} />
 				))}

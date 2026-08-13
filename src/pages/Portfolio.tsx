@@ -2,12 +2,11 @@ import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 import SpaHero from "../components/spa/SpaHero";
 import SpaProjects from "../components/spa/SpaProjects";
 import AnimatedCursor from "react-animated-cursor";
-import "./Portfolio.styles.sass";
 import SpaInfo from "../components/spa/SpaInfo";
 
 export default function Portfolio() {
 	return (
-		<AnimatedPage id="spa-portfolio">
+		<AnimatedPage id="spa-portfolio" className="w-full box-border bg-spa-black">
 			{window.innerWidth > 900 ? (
 				<AnimatedCursor
 					color="0,0,0,0"

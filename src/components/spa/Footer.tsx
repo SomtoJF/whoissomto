@@ -1,6 +1,5 @@
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import { useEffect, useRef } from "react";
-import "./styles/Footer.styles.sass";
 import { Divider } from "@mui/material";
 
 export default function Footer() {
@@ -22,7 +21,10 @@ export default function Footer() {
 
 	return (
 		<div ref={container} id="footer">
-			<svg viewBox="0 0 250 90">
+			<svg
+				viewBox="0 0 250 90"
+				className="w-full rounded-b-[15px] bg-white max-[1000px]:hidden [&_text]:font-display [&_text]:text-[6px] [&_text]:uppercase [&_text]:text-black"
+			>
 				<path
 					fill="none"
 					id="curve"
@@ -57,14 +59,34 @@ const FooterContent = ({
 	const y = useTransform(scrollProgress, [0, 1], [-225, 0]);
 
 	return (
-		<div className="footer-content-container">
-			<motion.div style={{ y }} className="contact-container">
-				<h1>* Let's Chat!</h1>
-				<a href="mailto:somtochukwjf@gmail.com">somtochukwjf@gmail.com</a>
-				<div id="links-copy">
-					<Divider />
-					<div id="all-links">
-						<div>
+		<div className="relative flex h-[60vh] overflow-hidden bg-black font-header">
+			<motion.div
+				style={{ y }}
+				className="box-border flex h-full w-full flex-col items-start justify-center bg-[#000] px-[2%] py-[5%]"
+			>
+				<h1 className="font-display text-[clamp(40px,7vw,94px)] font-extralight text-white">
+					* Let's Chat!
+				</h1>
+				<a
+					href="mailto:somtochukwjf@gmail.com"
+					className="my-[5%] text-[clamp(16px,5vw,32px)] font-light text-white underline"
+				>
+					somtochukwjf@gmail.com
+				</a>
+				<div id="links-copy" className="absolute bottom-0 w-full">
+					<Divider
+						sx={{
+							backgroundColor: "#D5D5D7",
+							width: "100%",
+							color: "#F4F4F4",
+							margin: "10px 0",
+						}}
+					/>
+					<div
+						id="all-links"
+						className="box-border flex w-full items-center justify-between pr-[5%] text-[clamp(13px,3vw,16px)] font-light text-white"
+					>
+						<div className="flex gap-5 [&_a]:text-white [&_a]:no-underline [&_a]:font-light">
 							<a
 								href="https://www.linkedin.com/in/somtochukwu-francis-b8a236239"
 								target="_blank"
