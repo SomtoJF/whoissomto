@@ -14,8 +14,11 @@ export default function Projects() {
 
 			const scrollDistanceInPercent = () => {
 				const scrollElementWidth = scrollElement!.scrollWidth;
+				// Leave enough of the viewport so the last card can fully enter view
+				// (accounts for the max-w-screen-xl padded content area).
+				const visibleWidth = scrollElement!.parentElement!.clientWidth;
 				const scrollToEndXPercent =
-					(-(scrollElementWidth - 0.9 * window.innerWidth) /
+					(-(scrollElementWidth - visibleWidth) /
 						scrollElement!.offsetWidth) *
 					100;
 
@@ -43,7 +46,7 @@ export default function Projects() {
 		<div id="trigger" className="max-[650px]:overflow-auto">
 			<div
 				id="projects-container"
-				className="grid auto-cols-[max(320px,30vw)] grid-flow-col grid-rows-1 gap-x-10"
+				className="grid auto-cols-[max(320px,30vw)] grid-flow-col grid-rows-1 gap-x-10 pr-8"
 			>
 				{myProjects.map((project) => (
 					<SpaProjectcard {...project} key={project.githubLink} />

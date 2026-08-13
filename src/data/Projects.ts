@@ -4,7 +4,7 @@ const myProjects: Project[] = [
 	{
 		name: "Iris",
 		description:
-			"Job application automation — one-click apply, or paste a job link and let the system handle the rest.",
+			"I hate job applications, so I automated them. Iris lets you one-click apply or paste a job link you found online, then handles the rest across a Go API, TypeScript client, and Chrome extension.",
 		liveLink: "https://applywithiris.com",
 		githubLink: "https://github.com/SomtoJF/iris-api",
 		technologies: ["Go", "TypeScript", "React", "Chrome Extension"],
@@ -12,16 +12,15 @@ const myProjects: Project[] = [
 	{
 		name: "Trio",
 		description:
-			"A group chat where multiple AI models (ChatGPT, Claude, Gemini, and friends) talk to each other and to you.",
+			"Imagine two ChatGPTs, Claudes, and Geminis in the same group chat. Trio is a multi-model chat app with a TypeScript client and Go server where several LLMs can talk to each other and to you.",
 		liveLink: "https://trio-self.vercel.app",
 		githubLink: "https://github.com/SomtoJF/trio-client",
-		technologies: ["TypeScript", "Go", "React", "LLMs"],
+		technologies: ["TypeScript", "Go", "React", "Next.js", "LLMs"],
 	},
 	{
 		name: "Academia",
 		description:
-			"An examination platform that grades open-ended answers using text similarity and textual entailment.",
-		liveLink: "https://academia-somtojf.vercel.app",
+			"An online examination platform that grades open-ended answers automatically. It uses text similarity and textual entailment so written responses can be scored without a purely multiple-choice format.",
 		githubLink: "https://github.com/SomtoJF/Academia",
 		technologies: [
 			"TypeScript",
@@ -33,43 +32,49 @@ const myProjects: Project[] = [
 		],
 	},
 	{
+		name: "Gocker",
+		description:
+			"A lightweight container runtime written in Go as a way to learn how isolation actually works. It runs on Ubuntu, nests inside Docker for development, and can drop you into an isolated shell with a simple run command.",
+		githubLink: "https://github.com/SomtoJF/gocker",
+		technologies: ["Go", "Docker", "Makefile"],
+	},
+	{
+		name: "Gosh",
+		description:
+			"A lightweight shell written in Go. Install it, run gosh, and you get a small custom shell to poke at how command parsing and process execution work.",
+		githubLink: "https://github.com/SomtoJF/gosh",
+		technologies: ["Go"],
+	},
+	{
+		name: "Sun",
+		description:
+			"A command-line weather tool in Go. Point it at a location with a flag, pull data from WeatherAPI, and get conditions without opening a browser.",
+		githubLink: "https://github.com/SomtoJF/sun",
+		technologies: ["Go", "WeatherAPI"],
+	},
+	{
+		name: "Three",
+		description:
+			"A 3D solar system simulation built with Three.js. Planets are textured with maps from NASA, and you can move around the scene to explore the system in the browser.",
+		liveLink: "https://somtojf-three.netlify.app/",
+		githubLink: "https://github.com/SomtoJF/Three",
+		technologies: ["JavaScript", "Three.js", "GSAP"],
+	},
+	{
 		name: "En Français",
 		description:
-			"A small site I use to stay on top of learning French — practice, structure, and accountability in one place.",
+			"I am learning French and it is hard, so I built a small site to stay on top of practice and structure. It is less a polished product and more a personal tool for keeping the habit alive.",
 		liveLink: "https://somtojf.github.io/en-francais/",
 		githubLink: "https://github.com/SomtoJF/en-francais",
 		technologies: ["JavaScript", "HTML"],
 	},
 	{
-		name: "Rewrite",
-		description:
-			"A blog I built because I often think about writing — markdown-first, from draft to publish.",
-		liveLink: "https://rewrite-blog.vercel.app",
-		githubLink: "https://github.com/SomtoJF/Rewrite",
-		technologies: [
-			"React",
-			"TypeScript",
-			"GraphQL",
-			"Express",
-			"MongoDB",
-			"Firebase",
-		],
-	},
-	{
 		name: "CV Builder",
 		description:
-			"Build an ATS-friendly CV without fighting the layout. Everything just fits.",
+			"A React app for building an ATS-friendly CV without fighting the layout. Fill in your details and export a resume that is meant to survive applicant tracking systems and still look clean on the page.",
 		liveLink: "https://somtojf.github.io/cv-project/",
 		githubLink: "https://github.com/SomtoJF/cv-project",
-		technologies: ["JavaScript", "CSS", "HTML"],
-	},
-	{
-		name: "Three",
-		description:
-			"A 3D solar system simulation in Three.js, with planet textures from NASA.",
-		liveLink: "https://somtojf-three.netlify.app/",
-		githubLink: "https://github.com/SomtoJF/Three",
-		technologies: ["JavaScript", "Three.js", "GSAP"],
+		technologies: ["JavaScript", "React", "CSS", "HTML"],
 	},
 ];
 
