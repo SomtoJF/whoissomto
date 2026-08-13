@@ -42,10 +42,10 @@ export default function Projects() {
 		<div id="trigger" className="max-[650px]:overflow-auto">
 			<div
 				id="projects-container"
-				className="grid auto-cols-[max(350px,35vw)] grid-flow-col grid-cols-[repeat(3,max(350px,35vw))] grid-rows-1 gap-x-[30px]"
+				className="grid auto-cols-[max(350px,35vw)] grid-flow-col grid-rows-1 gap-x-[30px]"
 			>
-				{myProjects.map((project, index) => (
-					<SpaProjectcard {...project} key={index + 0.223} />
+				{myProjects.map((project) => (
+					<SpaProjectcard {...project} key={project.githubLink} />
 				))}
 			</div>
 		</div>

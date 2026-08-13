@@ -1,73 +1,81 @@
 import { Project } from "../Types/Projects";
-import rebaseMockup from "../assets/rebase.png";
 import threeMockup from "../assets/three.png";
 import rewriteMockup from "../assets/rewrite.png";
 import academiaMockup from "../assets/academia.png";
 
 const myProjects: Project[] = [
 	{
-		name: "Rewrite Blog",
+		name: "Iris",
 		description:
-			"A fullstack blog which empowers writers with the freedom of markdown ",
-		liveLink: "https://rewrite-blog.vercel.app",
-		githubLink: "https://github.com/somtojf/rewrite",
-		mockupUrl: rewriteMockup,
-		technologies: [
-			"React",
-			"GraphQL",
-			"Express",
-			"TypeScript",
-			"SASS",
-			"MongoDB",
-			"Firebase",
-			"MUI",
-			"Ant-design",
-		],
+			"Job application automation — one-click apply, or paste a job link and let the system handle the rest.",
+		liveLink: "https://applywithiris.com",
+		githubLink: "https://github.com/SomtoJF/iris-api",
+		technologies: ["Go", "TypeScript", "React", "Chrome Extension"],
+	},
+	{
+		name: "Trio",
+		description:
+			"A group chat where multiple AI models (ChatGPT, Claude, Gemini, and friends) talk to each other and to you.",
+		liveLink: "https://trio-self.vercel.app",
+		githubLink: "https://github.com/SomtoJF/trio-client",
+		technologies: ["TypeScript", "Go", "React", "LLMs"],
 	},
 	{
 		name: "Academia",
 		description:
-			"An examination platform capable of grading open-ended questions using text similarity",
-		liveLink: "https://academia-zeta-three.vercel.app/",
-		githubLink: "https://github.com/somtojf/academia",
+			"An examination platform that grades open-ended answers using text similarity and textual entailment.",
+		liveLink: "https://academia-somtojf.vercel.app",
+		githubLink: "https://github.com/SomtoJF/Academia",
 		mockupUrl: academiaMockup,
 		technologies: [
 			"TypeScript",
 			"Python",
-			"Express",
-			"Flask",
-			"Tensorflow",
 			"React",
-			"Ant-design",
+			"Flask",
+			"TensorFlow",
 			"GraphQL",
-			"Cosine similarity",
-			"Text entailment",
 		],
 	},
 	{
-		name: "REBASE",
+		name: "En Français",
 		description:
-			"A frontend-only e-commerce website with a captivating user interface",
-		liveLink: "https://basic-dept-wine.vercel.app/",
-		githubLink: "https://github.com/SomtoJF/Rebase",
-		mockupUrl: rebaseMockup,
-		technologies: ["React", "TypeScript", "SASS", "GSAP", "Zustand", "MUI"],
+			"A small site I use to stay on top of learning French — practice, structure, and accountability in one place.",
+		liveLink: "https://somtojf.github.io/en-francais/",
+		githubLink: "https://github.com/SomtoJF/en-francais",
+		technologies: ["JavaScript", "HTML"],
+	},
+	{
+		name: "Rewrite",
+		description:
+			"A blog I built because I often think about writing — markdown-first, from draft to publish.",
+		liveLink: "https://rewrite-blog.vercel.app",
+		githubLink: "https://github.com/SomtoJF/Rewrite",
+		mockupUrl: rewriteMockup,
+		technologies: [
+			"React",
+			"TypeScript",
+			"GraphQL",
+			"Express",
+			"MongoDB",
+			"Firebase",
+		],
+	},
+	{
+		name: "CV Builder",
+		description:
+			"Build an ATS-friendly CV without fighting the layout. Everything just fits.",
+		liveLink: "https://somtojf.github.io/cv-project/",
+		githubLink: "https://github.com/SomtoJF/cv-project",
+		technologies: ["JavaScript", "CSS", "HTML"],
 	},
 	{
 		name: "Three",
 		description:
-			"A 3D simulation of the solar system built in Three.js. The planets are mapped with textures from the NASA website.",
+			"A 3D solar system simulation in Three.js, with planet textures from NASA.",
 		liveLink: "https://somtojf-three.netlify.app/",
 		githubLink: "https://github.com/SomtoJF/Three",
 		mockupUrl: threeMockup,
-		technologies: ["JavaScript", "CSS", "ThreeJS", "GSAP", "dat.gui"],
-	},
-	{
-		name: "Jobit",
-		description: "A Mobile Application for searching for developer jobs ",
-		githubLink: "https://github.com/SomtoJF/JobIt",
-		mockupUrl: "",
-		technologies: ["React Native", "JavaScript", "Expo Router", "Expo Go"],
+		technologies: ["JavaScript", "Three.js", "GSAP"],
 	},
 ];
 
