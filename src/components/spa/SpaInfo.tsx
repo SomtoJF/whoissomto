@@ -96,19 +96,21 @@ export default function SpaInfo() {
 	return (
 		<div
 			id="info"
-			className="relative z-[1] mt-[-5vh] min-h-screen rounded-t-[15px] bg-white px-[5%] pb-[10%] pt-[2.5%] font-header max-[1000px]:rounded-[15px] [&_a]:font-normal [&_a]:text-inherit [&_a]:no-underline hover:[&_a]:underline"
+			className="relative z-[1] mt-[-5vh] min-h-screen rounded-t-[15px] bg-white pb-[10%] pt-[2.5%] font-header max-[1000px]:rounded-[15px] [&_a]:font-normal [&_a]:text-inherit [&_a]:no-underline hover:[&_a]:underline"
 		>
-			<h1
-				id="info-header"
-				className="font-display text-[6rem] font-extralight"
-			>
-				Info
-			</h1>
-			{personalData.map((data) => (
-				<InfoListItem key={uuidv4()} title={data.title}>
-					{data.render()}
-				</InfoListItem>
-			))}
+			<div className="mx-auto max-w-screen-xl px-[5%]">
+				<h1
+					id="info-header"
+					className="font-display text-[6rem] font-extralight"
+				>
+					Info
+				</h1>
+				{personalData.map((data) => (
+					<InfoListItem key={uuidv4()} title={data.title}>
+						{data.render()}
+					</InfoListItem>
+				))}
+			</div>
 		</div>
 	);
 }
