@@ -146,8 +146,14 @@
 	}
 
 	.note-prose .note-link {
-		color: inherit;
+		color: var(--color-orange);
+		text-decoration: underline;
 		text-underline-offset: 3px;
+		text-decoration-thickness: 1px;
+	}
+
+	.note-prose .note-link:hover {
+		color: var(--color-red);
 	}
 
 	.note-prose mark.note-highlight {
