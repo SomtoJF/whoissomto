@@ -1,30 +1,43 @@
-const skills: string[] = [
-	"JavaScript/TypeScript",
-	"Java",
-	"Python",
-	"NextJS/React",
-	"Express",
-	"GraphQL",
-	"Git/GitHub",
-	"MongoDB",
-	"DynamoDB",
-	"Firebase",
-	"Azure AD",
-	"AWS Lambda",
-	"AWS API Gateway",
-	"AWS Textract",
-	"NestJS",
-	"Redis",
-	"Docker",
-	"PostgreSQL",
-	"MySQL/MariaDB",
-	"Vim",
-	"Emacs/DoomEmacs",
-	"SASS/SCSS/CSS",
-	"TailwindCSS",
-	"TensorFlow",
-	"React Native",
-	"Temporal",
+export type SkillGroup = {
+	category: string;
+	items: string[];
+};
+
+const skills: SkillGroup[] = [
+	{
+		category: "Languages",
+		items: ["TypeScript", "JavaScript", "Golang", "Python"],
+	},
+	{
+		category: "Frontend",
+		items: [
+			"React.js",
+			"Next.js",
+			"Redux",
+			"Zustand",
+			"Tailwind CSS",
+			"MaterialUI",
+			"SASS",
+		],
+	},
+	{
+		category: "Backend",
+		items: ["Node.js", "Express.js", "Nest.js", "Gin", "Flask"],
+	},
+	{
+		category: "DevOps & Cloud",
+		items: [
+			"Docker",
+			"Kubernetes",
+			"AWS (S3, Lambda, DynamoDB, Cognito, EC2)",
+			"Terraform",
+			"Pulumi",
+		],
+	},
+	{
+		category: "Other Tools",
+		items: ["Jest", "Temporal", "Qdrant", "SQL", "MongoDB", "PostgreSQL"],
+	},
 ];
 
 export default skills;

@@ -1,51 +1,76 @@
+import { useState } from "react";
 import skills from "../../data/Skills";
 import myEducation from "../../data/Education";
 import InfoListItem from "./InfoListItem";
 import { v4 as uuidv4 } from "uuid";
 import myExperience from "../../data/Experience";
+import { Experience } from "../../Types/Experience";
+
+function ExperienceEntry({ experience }: { experience: Experience }) {
+	const [expanded, setExpanded] = useState(false);
+	const hasAchievements = experience.achievements.length > 0;
+
+	return (
+		<div className="mb-8 last:mb-0">
+			<h3 className="m-0 flex text-base font-normal">
+				{experience.position} | {experience.company}
+			</h3>
+			<small className="my-2.5 block">{`${experience.period.start} - ${experience.period.end}`}</small>
+			<p>{experience.location}</p>
+			<p>
+				<b className="font-normal">Role Description: </b>
+				{experience.description}
+				{hasAchievements && (
+					<>
+						{" "}
+						<button
+							type="button"
+							onClick={() => setExpanded((prev) => !prev)}
+							className="cursor-pointer border-0 bg-transparent p-0 font-inherit font-normal text-inherit underline"
+						>
+							{expanded ? "See less" : "See more"}
+						</button>
+					</>
+				)}
+			</p>
+			{expanded && hasAchievements && (
+				<ul className="mt-3 list-disc space-y-2 pl-5 font-light">
+					{experience.achievements.map((achievement) => (
+						<li key={achievement}>{achievement}</li>
+					))}
+				</ul>
+			)}
+		</div>
+	);
+}
 
 const personalData = [
 	{
 		title: "About",
 		render: () => (
-			<p>
-				I am currently a Software Engineer at{" "}
-				<a href="https://www.sefara.com/" target="_blank">
-					Sefara
-				</a>{" "}
-				working predominantly with web-based technologies. I have a strong
-				affinity towards complex things. This fascination has led me to explore
-				a few other tech disciplines in search of knowledge and sometimes, just
-				plain fun. Some of the things which have piqued my interest in the past
-				are Game Development, AI and machine learning as well as Embedded
-				Systems among others. This broad spectrum of interests not only sharpens
-				my skills but also keeps my approach to technology fresh and
-				enthusiastic.
-			</p>
+			<>
+				<p>
+					I am interested in applied AI — the kind of work where models leave
+					the notebook and become part of a real product.
+				</p>
+				<p>
+					Outside of work, I taught myself to play the guitar, and I am
+					currently teaching myself French. I enjoy learning new things, usually
+					by picking something up and staying with it until it starts to click.
+				</p>
+			</>
 		),
 	},
 	{
 		title: "Experience",
 		render: () => (
-			<div id="experience-container" className="flex flex-col gap-[10%]">
-				{myExperience.map((experience, index) => {
-					if (index === myExperience.length - 1) {
-						return (
-							<>
-								<h3 className="m-0 flex text-base font-normal">
-									{experience.position} | {experience.company}
-								</h3>
-								<small className="my-2.5">{`${experience.period.start} - ${experience.period.end}`}</small>
-								<p>{experience.location}</p>
-								<p>
-									<b className="font-normal">Role Description: </b>
-									{experience.description}
-									<a href="#"> See More</a>
-								</p>
-							</>
-						);
-					}
-				})}
+			<div id="experience-container" className="flex flex-col">
+				{[...myExperience].reverse().map((experience) => (
+					<ExperienceEntry
+						key={`${experience.company}-${experience.period.start}`}
+						experience={experience}
+					/>
+				))}
 			</div>
 		),
 	},
@@ -58,6 +83,7 @@ const personalData = [
 				<p>
 					{myEducation.school}, {myEducation.location}
 				</p>
+				<p>{myEducation.honors}</p>
 				<p>
 					<b className="font-normal">Final Year Project:</b> Titled "Design and
 					Development of an AI-Enhanced Online Examination Platform" Involved
@@ -78,14 +104,23 @@ const personalData = [
 	{
 		title: "Skills",
 		render: () => (
-			<div id="skills-container" className="flex flex-wrap gap-2.5">
-				{skills.sort().map((skill) => (
-					<span
-						key={skill}
-						className="border border-solid border-black px-1.5 py-0.5 text-[0.7rem] font-light"
-					>
-						{skill.toUpperCase()}
-					</span>
+			<div id="skills-container" className="flex flex-col gap-6">
+				{skills.map((group) => (
+					<div key={group.category}>
+						<h3 className="mb-2.5 mt-0 text-base font-normal">
+							{group.category}
+						</h3>
+						<div className="flex flex-wrap gap-2.5">
+							{group.items.map((skill) => (
+								<span
+									key={skill}
+									className="border border-solid border-black px-1.5 py-0.5 text-[0.7rem] font-light"
+								>
+									{skill.toUpperCase()}
+								</span>
+							))}
+						</div>
+					</div>
 				))}
 			</div>
 		),

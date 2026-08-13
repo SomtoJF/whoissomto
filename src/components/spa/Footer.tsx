@@ -69,10 +69,10 @@ const FooterContent = ({
 						* Let's Chat!
 					</h1>
 					<a
-						href="mailto:somtochukwjf@gmail.com"
+						href="mailto:somtochukwujf@gmail.com"
 						className="my-[5%] inline-block text-[clamp(16px,5vw,32px)] font-light text-white underline"
 					>
-						somtochukwjf@gmail.com
+						somtochukwujf@gmail.com
 					</a>
 				</div>
 				<div id="links-copy" className="absolute bottom-0 w-full">
