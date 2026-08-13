@@ -73,4 +73,104 @@
 	.link-underline-white::after {
 		background-color: white;
 	}
+
+	.note-prose {
+		font-family: var(--font-header);
+		font-weight: 300;
+		font-size: 1.05rem;
+		line-height: 1.75;
+		color: var(--color-black);
+	}
+
+	.note-prose h1,
+	.note-prose h2,
+	.note-prose h3,
+	.note-prose h4 {
+		font-weight: 400;
+		line-height: 1.25;
+		margin: 2rem 0 0.75rem;
+	}
+
+	.note-prose h1 {
+		font-size: 2rem;
+	}
+
+	.note-prose h2 {
+		font-size: 1.5rem;
+	}
+
+	.note-prose h3 {
+		font-size: 1.25rem;
+	}
+
+	.note-prose p,
+	.note-prose ul,
+	.note-prose ol,
+	.note-prose blockquote {
+		margin: 1rem 0;
+	}
+
+	.note-prose ul,
+	.note-prose ol {
+		padding-left: 1.25rem;
+	}
+
+	.note-prose li {
+		margin: 0.35rem 0;
+	}
+
+	.note-prose blockquote {
+		border-left: 2px solid var(--color-grey);
+		padding-left: 1rem;
+		color: var(--color-charcoal);
+	}
+
+	.note-prose hr {
+		border: 0;
+		border-top: 1px solid var(--color-grey);
+		margin: 2rem 0;
+	}
+
+	.note-prose table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1.5rem 0;
+		font-size: 0.95rem;
+	}
+
+	.note-prose th,
+	.note-prose td {
+		border: 1px solid var(--color-grey);
+		padding: 0.5rem 0.75rem;
+		text-align: left;
+	}
+
+	.note-prose .note-link {
+		color: inherit;
+		text-underline-offset: 3px;
+	}
+
+	.note-prose input[type="checkbox"] {
+		margin-right: 0.5rem;
+	}
+
+	.note-prose pre {
+		overflow-x: auto;
+		border-radius: 6px;
+		margin: 1.5rem 0;
+		font-size: 0.9rem;
+	}
+
+	.note-prose :not(pre) > code {
+		background: var(--color-grey);
+		border-radius: 4px;
+		padding: 0.1rem 0.35rem;
+		font-size: 0.9em;
+	}
+
+	.note-prose .katex-display {
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding: 0.5rem 0;
+	}
 }
