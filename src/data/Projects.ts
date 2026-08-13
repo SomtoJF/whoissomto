@@ -1,7 +1,4 @@
 import { Project } from "../Types/Projects";
-import threeMockup from "../assets/three.png";
-import rewriteMockup from "../assets/rewrite.png";
-import academiaMockup from "../assets/academia.png";
 
 const myProjects: Project[] = [
 	{
@@ -26,7 +23,6 @@ const myProjects: Project[] = [
 			"An examination platform that grades open-ended answers using text similarity and textual entailment.",
 		liveLink: "https://academia-somtojf.vercel.app",
 		githubLink: "https://github.com/SomtoJF/Academia",
-		mockupUrl: academiaMockup,
 		technologies: [
 			"TypeScript",
 			"Python",
@@ -50,7 +46,6 @@ const myProjects: Project[] = [
 			"A blog I built because I often think about writing — markdown-first, from draft to publish.",
 		liveLink: "https://rewrite-blog.vercel.app",
 		githubLink: "https://github.com/SomtoJF/Rewrite",
-		mockupUrl: rewriteMockup,
 		technologies: [
 			"React",
 			"TypeScript",
@@ -74,7 +69,6 @@ const myProjects: Project[] = [
 			"A 3D solar system simulation in Three.js, with planet textures from NASA.",
 		liveLink: "https://somtojf-three.netlify.app/",
 		githubLink: "https://github.com/SomtoJF/Three",
-		mockupUrl: threeMockup,
 		technologies: ["JavaScript", "Three.js", "GSAP"],
 	},
 ];

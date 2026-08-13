@@ -38,11 +38,12 @@ export default function Projects() {
 			});
 		}
 	});
+
 	return (
 		<div id="trigger" className="max-[650px]:overflow-auto">
 			<div
 				id="projects-container"
-				className="grid auto-cols-[max(350px,35vw)] grid-flow-col grid-rows-1 gap-x-[30px]"
+				className="grid auto-cols-[max(320px,30vw)] grid-flow-col grid-rows-1 gap-x-10"
 			>
 				{myProjects.map((project) => (
 					<SpaProjectcard {...project} key={project.githubLink} />
