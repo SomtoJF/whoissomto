@@ -1,4 +1,17 @@
+import { useLenis } from "@studio-freight/react-lenis";
+import { MouseEvent } from "react";
+
 export default function SpaNavbar() {
+	const lenis = useLenis();
+
+	const scrollToSection = (
+		event: MouseEvent<HTMLAnchorElement>,
+		target: string
+	) => {
+		event.preventDefault();
+		lenis?.scrollTo(target, { duration: 1.5 });
+	};
+
 	return (
 		<nav
 			id="spa-navbar"
@@ -12,6 +25,7 @@ export default function SpaNavbar() {
 				<li>
 					<a
 						href="#spa-projects"
+						onClick={(event) => scrollToSection(event, "#spa-projects")}
 						className="link-underline link-underline-white text-inherit no-underline hover:underline"
 					>
 						Projects
@@ -20,6 +34,7 @@ export default function SpaNavbar() {
 				<li>
 					<a
 						href="#info"
+						onClick={(event) => scrollToSection(event, "#info")}
 						className="link-underline link-underline-white text-inherit no-underline hover:underline"
 					>
 						Info
@@ -29,6 +44,7 @@ export default function SpaNavbar() {
 					<a
 						href="https://rewrite-blog.vercel.app"
 						target="_blank"
+						rel="noopener noreferrer"
 						className="link-underline link-underline-white text-inherit no-underline hover:underline"
 					>
 						Blog
