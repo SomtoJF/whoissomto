@@ -26,6 +26,14 @@ export default function MarkdownRenderer({
 }: MarkdownRendererProps) {
 	const components = {
 		a: ({ href, children }) => {
+			if (href?.startsWith("#")) {
+				return (
+					<a href={href} className="note-link">
+						{children}
+					</a>
+				);
+			}
+
 			if (href?.startsWith("/")) {
 				return (
 					<Link to={href} className="note-link">

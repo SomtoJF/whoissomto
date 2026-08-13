@@ -5,8 +5,10 @@ import { slugify } from "../parser";
 import type { NoteMeta } from "../types";
 
 const EMBED_RE = /!\[\[([^\]|#\n]+)(?:\|([^\]\n]+))?\]\]/g;
+const HEADING_LINK_RE = /\[\[#([^\]|\n]+)(?:\|([^\]\n]+))?\]\]/g;
 const WIKILINK_RE =
 	/\[\[([^\]|#\n]+)(?:#([^\]|\n]+))?(?:\|([^\]\n]+))?\]\]/g;
+const HIGHLIGHT_RE = /==([^=\n]+)==/g;
 
 type ObsidianPluginOptions = {
 	notes?: NoteMeta[];
@@ -26,6 +28,12 @@ export function remarkObsidian(options: ObsidianPluginOptions = {}) {
 					},
 				],
 				[
+					HEADING_LINK_RE,
+					(_match: string, heading: string, alias?: string) => {
+						return headingLinkNode(heading.trim(), alias?.trim());
+					},
+				],
+				[
 					WIKILINK_RE,
 					(
 						_match: string,
@@ -36,9 +44,29 @@ export function remarkObsidian(options: ObsidianPluginOptions = {}) {
 						return wikiNode(target.trim(), heading?.trim(), alias?.trim(), notes);
 					},
 				],
+				[
+					HIGHLIGHT_RE,
+					(_match: string, text: string) => {
+						return highlightNode(text);
+					},
+				],
 			],
 			{ ignore: ["code", "inlineCode"] },
 		);
+	};
+}
+
+function headingLinkNode(
+	heading: string,
+	alias: string | undefined,
+): PhrasingContent {
+	const hash = `#${new GithubSlugger().slug(heading)}`;
+	const label = alias || heading;
+
+	return {
+		type: "link",
+		url: hash,
+		children: [{ type: "text", value: label }],
 	};
 }
 
@@ -62,6 +90,19 @@ function wikiNode(
 		url: `/notes/${slug}${hash}`,
 		children: [{ type: "text", value: label }],
 	};
+}
+
+function highlightNode(text: string): PhrasingContent {
+	return {
+		type: "highlight",
+		children: [{ type: "text", value: text }],
+		data: {
+			hName: "mark",
+			hProperties: {
+				className: ["note-highlight"],
+			},
+		},
+	} as unknown as PhrasingContent;
 }
 
 function embedNode(target: string, alias: string | undefined): PhrasingContent {

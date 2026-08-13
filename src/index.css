@@ -150,6 +150,13 @@
 		text-underline-offset: 3px;
 	}
 
+	.note-prose mark.note-highlight {
+		background: color-mix(in srgb, var(--color-orange) 35%, transparent);
+		color: inherit;
+		padding: 0.05em 0.2em;
+		border-radius: 2px;
+	}
+
 	.note-prose input[type="checkbox"] {
 		margin-right: 0.5rem;
 	}
