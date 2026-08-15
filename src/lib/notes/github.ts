@@ -44,26 +44,17 @@ export async function getNote(slug: string): Promise<Note> {
 
 export async function getAsset(path: string): Promise<string> {
 	const decoded = decodeURIComponent(path.trim()).replace(/^\/+/, "");
+	if (!decoded) {
+		throw new Error("Asset not found: empty path");
+	}
+
 	const tree = await getTree();
-
-	const exact =
-		tree.find((item) => item.path === decoded) ??
-		tree.find((item) => item.path === `${NOTES_ROOT}/${decoded}`);
-	if (exact) {
-		return rawUrl(exact.path);
+	const match = resolveAssetPath(decoded, tree);
+	if (!match) {
+		throw new Error(`Asset not found: ${decoded}`);
 	}
 
-	const basename = decoded.split("/").pop() ?? decoded;
-	const inBlog = tree.find(
-		(item) =>
-			isUnderNotesRoot(item.path) &&
-			(item.path.endsWith(`/${basename}`) || item.path === `${NOTES_ROOT}/${basename}`),
-	);
-	if (inBlog) {
-		return rawUrl(inBlog.path);
-	}
-
-	return rawUrl(decoded.includes("/") ? decoded : `${NOTES_ROOT}/${decoded}`);
+	return rawUrl(match);
 }
 
 export function rawUrl(path: string): string {
@@ -155,6 +146,29 @@ function isBlogMarkdown(path: string): boolean {
 
 function isUnderNotesRoot(path: string): boolean {
 	return path === NOTES_ROOT || path.startsWith(`${NOTES_ROOT}/`);
+}
+
+function resolveAssetPath(
+	decoded: string,
+	tree: GitTreeItem[],
+): string | undefined {
+	const exact =
+		tree.find((item) => item.path === decoded) ??
+		tree.find((item) => item.path === `${NOTES_ROOT}/${decoded}`);
+	if (exact) {
+		return exact.path;
+	}
+
+	const basename = decoded.split("/").pop() ?? decoded;
+	const byBasename = tree.filter(
+		(item) => item.path === basename || item.path.endsWith(`/${basename}`),
+	);
+	if (byBasename.length === 0) {
+		return undefined;
+	}
+
+	const inBlog = byBasename.find((item) => isUnderNotesRoot(item.path));
+	return (inBlog ?? byBasename[0]).path;
 }
 
 function compareNotes(a: NoteMeta, b: NoteMeta): number {
