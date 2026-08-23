@@ -4,7 +4,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import type { Components } from "react-markdown";
 import type { ReactNode } from "react";
 import { remarkObsidian } from "../../lib/notes/remark/obsidian";
@@ -18,11 +18,13 @@ import "highlight.js/styles/github.css";
 type MarkdownRendererProps = {
 	content: string;
 	notes?: NoteMeta[];
+	assets?: Record<string, string>;
 };
 
 export default function MarkdownRenderer({
 	content,
 	notes,
+	assets,
 }: MarkdownRendererProps) {
 	const components = {
 		a: ({ href, children }) => {
@@ -36,7 +38,7 @@ export default function MarkdownRenderer({
 
 			if (href?.startsWith("/")) {
 				return (
-					<Link to={href} className="note-link">
+					<Link href={href} className="note-link">
 						{children}
 					</Link>
 				);
@@ -67,7 +69,7 @@ export default function MarkdownRenderer({
 			</Callout>
 		),
 		obsidianembed: ({ target, alt }: { target?: string; alt?: string }) => (
-			<ObsidianEmbed target={target} alt={alt} />
+			<ObsidianEmbed target={target} alt={alt} assets={assets} />
 		),
 	} as Components & {
 		callout: typeof Callout;

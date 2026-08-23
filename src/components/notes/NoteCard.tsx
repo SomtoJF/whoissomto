@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import type { NoteMeta } from "../../lib/notes/types";
 import { formatNoteDate } from "../../lib/notes/format";
 
@@ -9,7 +9,7 @@ type NoteCardProps = {
 export default function NoteCard({ note }: NoteCardProps) {
 	return (
 		<article className="border-b border-grey py-8 last:border-b-0">
-			<Link to={`/notes/${note.slug}`} className="group block no-underline">
+			<Link href={`/notes/${note.slug}`} className="group block no-underline">
 				{note.date ? (
 					<time
 						dateTime={note.date}

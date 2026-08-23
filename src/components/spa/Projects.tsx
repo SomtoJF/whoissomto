@@ -1,3 +1,5 @@
+"use client";
+
 import myProjects from "../../data/Projects";
 import SpaProjectcard from "./SpaProjectcard";
 import { useGSAP } from "@gsap/react";

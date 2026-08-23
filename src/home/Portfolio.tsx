@@ -1,13 +1,20 @@
-import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
-import SpaHero from "../components/spa/SpaHero";
-import SpaProjects from "../components/spa/SpaProjects";
+"use client";
+
 import AnimatedCursor from "react-animated-cursor";
-import SpaInfo from "../components/spa/SpaInfo";
+import SpaHero from "@/components/spa/SpaHero";
+import SpaProjects from "@/components/spa/SpaProjects";
+import SpaInfo from "@/components/spa/SpaInfo";
 
 export default function Portfolio() {
+	const showCursor =
+		typeof window !== "undefined" ? window.innerWidth > 900 : false;
+
 	return (
-		<AnimatedPage id="spa-portfolio" className="w-full box-border bg-spa-black">
-			{window.innerWidth > 900 ? (
+		<div
+			id="spa-portfolio"
+			className="box-border w-full bg-spa-black"
+		>
+			{showCursor ? (
 				<AnimatedCursor
 					color="0,0,0,0"
 					innerSize={5}
@@ -22,12 +29,10 @@ export default function Portfolio() {
 					trailingSpeed={1}
 					showSystemCursor={true}
 				/>
-			) : (
-				<></>
-			)}
+			) : null}
 			<SpaHero />
 			<SpaProjects />
 			<SpaInfo />
-		</AnimatedPage>
+		</div>
 	);
 }

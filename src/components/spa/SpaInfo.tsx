@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import skills from "../../data/Skills";
 import myEducation from "../../data/Education";

@@ -1,6 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
-import { getAsset } from "../../lib/notes/github";
+import Link from "next/link";
 import { slugify } from "../../lib/notes/parser";
 
 const IMAGE_EXT = /\.(png|jpe?g|gif|webp|svg|avif|bmp|ico)$/i;
@@ -10,31 +8,33 @@ type EmbedKind = "image" | "note" | "unknown";
 type ObsidianEmbedProps = {
 	target?: string;
 	alt?: string;
+	assets?: Record<string, string>;
 };
 
-const embedResolvers: Record<
-	EmbedKind,
-	(target: string, alt?: string) => JSX.Element
-> = {
-	image: (target, alt) => <ImageEmbed target={target} alt={alt} />,
-	note: (target, alt) => (
-		<Link
-			to={`/notes/${slugify(target)}`}
-			className="link-underline my-4 inline-block font-header font-light text-inherit no-underline"
-		>
-			{alt || target}
-		</Link>
-	),
-	unknown: (target) => (
+export default function ObsidianEmbed({
+	target = "",
+	alt,
+	assets,
+}: ObsidianEmbedProps) {
+	const kind = classifyEmbed(target);
+	if (kind === "image") {
+		return <ImageEmbed target={target} alt={alt} src={assets?.[target]} />;
+	}
+	if (kind === "note") {
+		return (
+			<Link
+				href={`/notes/${slugify(target)}`}
+				className="link-underline my-4 inline-block font-header font-light text-inherit no-underline"
+			>
+				{alt || target}
+			</Link>
+		);
+	}
+	return (
 		<span className="font-header text-sm font-light text-charcoal">
 			Unsupported embed: {target}
 		</span>
-	),
-};
-
-export default function ObsidianEmbed({ target = "", alt }: ObsidianEmbedProps) {
-	const kind = classifyEmbed(target);
-	return embedResolvers[kind](target, alt || undefined);
+	);
 }
 
 function classifyEmbed(target: string): EmbedKind {
@@ -43,20 +43,16 @@ function classifyEmbed(target: string): EmbedKind {
 	return "unknown";
 }
 
-function ImageEmbed({ target, alt }: { target: string; alt?: string }) {
-	const { data: src, isLoading, isError } = useQuery({
-		queryKey: ["notes", "asset", target],
-		queryFn: () => getAsset(target),
-		staleTime: 5 * 60 * 1000,
-	});
-
-	if (isLoading) {
-		return (
-			<span className="my-6 block h-40 animate-pulse rounded-md bg-grey/60" />
-		);
-	}
-
-	if (isError || !src) {
+function ImageEmbed({
+	target,
+	alt,
+	src,
+}: {
+	target: string;
+	alt?: string;
+	src?: string;
+}) {
+	if (!src) {
 		return (
 			<span className="font-header text-sm font-light text-charcoal">
 				Missing image: {alt || target}
@@ -65,10 +61,8 @@ function ImageEmbed({ target, alt }: { target: string; alt?: string }) {
 	}
 
 	return (
-		<img
-			src={src}
-			alt={alt || target}
-			className="my-6 max-w-full rounded-md"
-		/>
+		// GitHub raw URLs vary in size; keep native img to avoid next/image config.
+		// eslint-disable-next-line @next/next/no-img-element
+		<img src={src} alt={alt || target} className="my-6 max-w-full rounded-md" />
 	);
 }

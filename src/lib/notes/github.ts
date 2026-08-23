@@ -1,16 +1,22 @@
+import "server-only";
+
 import { filenameFromPath, parseMarkdown, slugify } from "./parser";
 import type { GitTreeItem, GitTreeResponse, Note, NoteMeta } from "./types";
 
-const OWNER = import.meta.env.VITE_NOTES_REPO_OWNER ?? "SomtoJF";
-const REPO = import.meta.env.VITE_NOTES_REPO_NAME ?? "Obsidian";
-const BRANCH = import.meta.env.VITE_NOTES_BRANCH ?? "main";
-const NOTES_ROOT = (import.meta.env.VITE_NOTES_ROOT ?? "Blog").replace(
-	/\/+$/,
-	"",
-);
+const OWNER = process.env.NOTES_REPO_OWNER ?? "SomtoJF";
+const REPO = process.env.NOTES_REPO_NAME ?? "Obsidian";
+const BRANCH = process.env.NOTES_BRANCH ?? "main";
+const NOTES_ROOT = (process.env.NOTES_ROOT ?? "Blog").replace(/\/+$/, "");
+const TOKEN = process.env.GITHUB_TOKEN;
 
 const TREE_URL = `https://api.github.com/repos/${OWNER}/${REPO}/git/trees/${BRANCH}?recursive=1`;
 const RAW_BASE = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}`;
+const IMAGE_EXT = /\.(png|jpe?g|gif|webp|svg|avif|bmp|ico)$/i;
+const EMBED_RE = /!\[\[([^\]|#\n]+)(?:\|([^\]\n]+))?\]\]/g;
+
+const FETCH_INIT: RequestInit & { next: { revalidate: number } } = {
+	next: { revalidate: 60 },
+};
 
 let inFlightTree: Promise<GitTreeItem[]> | null = null;
 
@@ -34,12 +40,24 @@ export async function getNote(slug: string): Promise<Note> {
 		throw new Error(`Note not found: ${slug}`);
 	}
 
-	const resolved = parseMarkdown(await fetchRaw(match.path), match.path, NOTES_ROOT);
+	const resolved = parseMarkdown(
+		await fetchRaw(match.path),
+		match.path,
+		NOTES_ROOT,
+	);
 	if (!resolved.published) {
 		throw new Error(`Note not found: ${slug}`);
 	}
 
 	return resolved;
+}
+
+export async function getNoteOrNull(slug: string): Promise<Note | null> {
+	try {
+		return await getNote(slug);
+	} catch {
+		return null;
+	}
 }
 
 export async function getAsset(path: string): Promise<string> {
@@ -57,9 +75,42 @@ export async function getAsset(path: string): Promise<string> {
 	return rawUrl(match);
 }
 
+export async function resolveNoteAssets(
+	content: string,
+): Promise<Record<string, string>> {
+	const targets = new Set<string>();
+	for (const match of content.matchAll(new RegExp(EMBED_RE.source, "g"))) {
+		const target = match[1]?.trim();
+		if (target && IMAGE_EXT.test(target)) {
+			targets.add(target);
+		}
+	}
+
+	const entries = await Promise.all(
+		[...targets].map(async (target) => {
+			try {
+				return [target, await getAsset(target)] as const;
+			} catch {
+				return [target, ""] as const;
+			}
+		}),
+	);
+
+	return Object.fromEntries(entries.filter(([, src]) => src));
+}
+
 export function rawUrl(path: string): string {
 	const segments = path.split("/").map(encodeURIComponent).join("/");
 	return `${RAW_BASE}/${segments}`;
+}
+
+function githubHeaders(extra?: HeadersInit): HeadersInit {
+	return {
+		Accept: "application/vnd.github+json",
+		"User-Agent": "whoissomto",
+		...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}),
+		...extra,
+	};
 }
 
 async function resolveNotePath(slug: string): Promise<string | undefined> {
@@ -117,7 +168,8 @@ async function getTree(): Promise<GitTreeItem[]> {
 
 async function fetchTree(): Promise<GitTreeItem[]> {
 	const response = await fetch(TREE_URL, {
-		headers: { Accept: "application/vnd.github+json" },
+		...FETCH_INIT,
+		headers: githubHeaders(),
 	});
 
 	if (!response.ok) {
@@ -131,7 +183,7 @@ async function fetchTree(): Promise<GitTreeItem[]> {
 }
 
 async function fetchRaw(path: string): Promise<string> {
-	const response = await fetch(rawUrl(path));
+	const response = await fetch(rawUrl(path), FETCH_INIT);
 	if (!response.ok) {
 		throw new Error(
 			`Failed to fetch ${path} (${response.status} ${response.statusText})`,
