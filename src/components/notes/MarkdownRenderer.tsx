@@ -27,6 +27,11 @@ export default function MarkdownRenderer({
 	assets,
 }: MarkdownRendererProps) {
 	const components = {
+		pre: ({ children, ...props }) => (
+			<pre {...props} data-lenis-prevent>
+				{children}
+			</pre>
+		),
 		a: ({ href, children }) => {
 			if (href?.startsWith("#")) {
 				return (

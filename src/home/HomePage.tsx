@@ -2,19 +2,19 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import ReactLenis, { useLenis } from "@studio-freight/react-lenis";
+import { useLenis } from "@studio-freight/react-lenis";
 import SpaNavbar from "@/components/spa/SpaNavbar";
 import Footer from "@/components/spa/Footer";
 import Portfolio from "@/home/Portfolio";
 
 export default function HomePage() {
 	return (
-		<ReactLenis root options={{ lerp: 0.07, duration: 1.5, smoothTouch: true }}>
+		<>
 			<HashScroller />
 			<SpaNavbar />
 			<Portfolio />
 			<Footer />
-		</ReactLenis>
+		</>
 	);
 }
 
