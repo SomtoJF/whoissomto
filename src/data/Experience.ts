@@ -24,7 +24,7 @@ const myExperience: Experience[] = [
 	{
 		company: "Sefara",
 		location: "Remote, Nigeria",
-		period: { start: "August 2023", end: "September 2024" },
+		period: { start: "February 2024", end: "September 2024" },
 		description:
 			"Built core client and server-side components for a SaaS platform designed to streamline procurement and payment processes for businesses.",
 		achievements: [
