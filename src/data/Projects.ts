@@ -5,6 +5,7 @@ const myProjects: Project[] = [
 		name: "Iris",
 		description:
 			"I hate job applications, so I automated them. Iris lets you one-click apply or paste a job link you found online, then handles the rest across a Go API, TypeScript client, and Chrome extension.",
+		linkDescription: "Find your next role at hyperspeed. Iris Apply automates job applications so you can focus on what matters.",
 		liveLink: "https://applywithiris.com",
 		githubLink: "https://github.com/SomtoJF/iris-api",
 		technologies: ["Go", "TypeScript", "React", "Chrome Extension"],

@@ -6,12 +6,13 @@ const myExperience: Experience[] = [
 		location: "Gothenburg, Sweden",
 		period: { start: "March 2023", end: "June 2023" },
 		description:
-			"Interned as a frontend-focused software engineer working on an internal web application for the management and coordination of activities throughout numerous Hardware-in-the-Loop teams.",
+			"Built an internal app to coordinate activities across multiple Hardware-in-the-Loop teams, reducing manual coordination efforts by 60% and saving 4+ hours per week",
 		achievements: [
 			"Collaborated closely with designers to translate wireframes and design mockups into efficient, maintainable code, ensuring alignment with design specifications.",
 			"Strategically migrated backend services to serverless architectures on AWS and Azure, realizing cost savings of 30%-50%.",
 			"Integrated Azure Active Directory for secure user authentication and authorization, enabling managed access for over 40,000 employees.",
 		],
+		site: "https://www.volvocars.com/intl",
 		softwareTools: [
 			"JavaScript",
 			"React",
@@ -23,7 +24,7 @@ const myExperience: Experience[] = [
 	},
 	{
 		company: "Sefara",
-		location: "Remote, Nigeria",
+		location: "Remote, US",
 		period: { start: "February 2024", end: "September 2024" },
 		description:
 			"Built core client and server-side components for a SaaS platform designed to streamline procurement and payment processes for businesses.",
@@ -45,8 +46,8 @@ const myExperience: Experience[] = [
 		position: "Software Engineer",
 	},
 	{
-		company: "Salescopilots",
-		location: "Remote, Nigeria",
+		company: "Sales Copilots",
+		location: "Remote, US",
 		period: { start: "November 2024", end: "August 2026" },
 		description:
 			"Worked as a founding engineer building core client and server-side components for an AI sales prospecting tool.",
@@ -57,6 +58,7 @@ const myExperience: Experience[] = [
 			"Architected scalable data and RAG pipelines integrating multiple data sources with efficient caching mechanisms, batch processing and rate limiting for optimal performance, scalability and more accurate LLM responses.",
 			"Built evaluation harnesses for the AI scoring and generation models with curated golden sets and regression runs on prompt changes, catching quality regressions before customers saw them.",
 		],
+		site: "https://salescopilots.com",
 		softwareTools: [
 			"TypeScript",
 			"React",

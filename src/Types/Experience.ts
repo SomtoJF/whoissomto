@@ -9,6 +9,7 @@ interface Experience {
 		end: string;
 	};
 	achievements: string[];
+	site?: string;
 }
 
 export type { Experience };
