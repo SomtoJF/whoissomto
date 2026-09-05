@@ -4,6 +4,8 @@ import { GitHubCalendar } from "react-github-calendar";
 import myProjects from "@/data/Projects";
 import { GithubFilled, LinkedinFilled } from "@ant-design/icons";
 import myExperience from "@/data/Experience";
+import websiteImage from "../../public/website_image.jpeg";
+import footerImage from "../../public/footer_image.jpeg";
 
 export default function Home() {
   function getLogo(domain: string, size: number = 64) {
@@ -15,9 +17,9 @@ export default function Home() {
   return (
     <div className="w-screen font-body">
       <div className="max-w-2xl mx-auto p-4 space-y-4">
-        <div className="w-full overflow-hidden rounded-lg h-28 relative">
+        <div className="w-full overflow-hidden rounded-lg h-36 relative">
           <Image
-            src="https://pbs.twimg.com/media/HQEvPjzbAAAEJFw?format=jpg&name=large"
+            src={websiteImage}
             alt="Home"
             className="w-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-300"
             fill
@@ -168,11 +170,11 @@ export default function Home() {
         <hr className="border-gray-300" />
 
         <div className="space-y-2">
-          <div className="w-full min-h-[15vw] relative rounded-lg overflow-hidden grayscale hover:grayscale-0 object-cover object-center transition-all duration-300">
+          <div className="w-full relative rounded-lg overflow-hidden grayscale hover:grayscale-0 object-cover object-center transition-all duration-300 h-36">
             <Image
-              src="https://pbs.twimg.com/media/HQd290Pb0AAuFrV?format=jpg&name=4096x4096"
+              src={footerImage}
               alt="Somtochukwu"
-              className="w-full object-cover object-center"
+              className="w-full object-cover object-center sm:object-bottom"
               fill
             />
           </div>
