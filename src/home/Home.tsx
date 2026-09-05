@@ -142,7 +142,7 @@ export default function Home() {
                       shape="square"
                     />
                   </div>
-                  <span className="text-gray-500">
+                  <span className="text-gray-500 text-sm">
                     {project.shortDescription || project.description}
                   </span>
                 </div>
