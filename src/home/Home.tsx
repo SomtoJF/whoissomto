@@ -53,16 +53,36 @@ export default function Home() {
                 linkedin
               </Link>
             </button>
+
+            <button>
+              <GithubFilled className="mr-1.5 w-3 h-3 mt-auto" />
+              <Link
+                href="https://github.com/somtojf"
+                target="_blank"
+                className="border-b-2 text-sm"
+              >
+                github
+              </Link>
+            </button>
           </div>
           <div className="w-full flex justify-between font-regular items-center">
-            <h1 className="font-bold text-2xl">Somtochukwu Francis </h1>
+            <h1 className="font-bold text-2xl">I'm Somtochukwu Francis </h1>
           </div>
-          <p className=" text-gray-700">
-            {" "}
-            Deserunt fugiat nisi tempor ipsum. Amet ea deserunt ipsum eiusmod
-            dolor et ut consectetur. Ea deserunt veniam in irure proident qui
-            non non aliqua sunt sint aute proident aute.
-          </p>
+          <div className="w-full flex flex-col gap-2 text-gray-600 text-sm">
+            <p>
+              {" "}
+              A Software Engineer with nearly three years of experience in the
+              fintech, automotive, and salestech industries. Developed software
+              supporting over 40,000 users, including platforms used by
+              employees at Fortune 50 companies.
+            </p>
+            <p>
+              {" "}
+              I love to learn new things, and I am always looking for ways to
+              improve my skills. Outside of work, I have taught myself to play
+              the guitar and I am currently learning french.
+            </p>
+          </div>
         </div>
 
         <div className="">
@@ -121,8 +141,7 @@ export default function Home() {
                     />
                   </div>
                   <span className="text-gray-500">
-                    Ut pariatur nulla do eu qui aliqua nisi et culpa laborum
-                    anim nostrud.
+                    {project.shortDescription || project.description}
                   </span>
                 </div>
                 {/* <SocialPreview
@@ -149,20 +168,11 @@ export default function Home() {
         <hr className="border-gray-300" />
 
         <div className="space-y-2">
-          <div className="w-full min-h-[15vw] relative rounded-lg overflow-hidden grayscale">
-            {/* <Image
+          <div className="w-full min-h-[15vw] relative rounded-lg overflow-hidden grayscale hover:grayscale-0 object-cover object-center transition-all duration-300">
+            <Image
               src="https://pbs.twimg.com/media/HQd290Pb0AAuFrV?format=jpg&name=4096x4096"
               alt="Somtochukwu"
               className="w-full object-cover object-center"
-              fill
-            /> */}
-
-            <div className="grayscale-0 w-48 h-48"></div>
-
-            <Image
-              src="https://pbs.twimg.com/media/HQd290Pb0AAuFrV?format=jpg&name=4096x4096"
-              alt="Home"
-              className="w-full object-cover object-bottom"
               fill
             />
           </div>

@@ -7,6 +7,7 @@ const myProjects: Project[] = [
 			"I hate job applications, so I automated them. Iris lets you one-click apply or paste a job link you found online, then handles the rest across a Go API, TypeScript client, and Chrome extension.",
 		linkDescription: "Find your next role at hyperspeed. Iris Apply automates job applications so you can focus on what matters.",
 		liveLink: "https://applywithiris.com",
+		shortDescription: "Autonomously applies or can be used as a co-pilot for job applications.",
 		githubLink: "https://github.com/SomtoJF/iris-api",
 		technologies: ["Go", "TypeScript", "React", "Chrome Extension"],
 	},
@@ -15,8 +16,17 @@ const myProjects: Project[] = [
 		description:
 			"Imagine two ChatGPTs, Claudes, and Geminis in the same group chat. Trio is a multi-model chat app with a TypeScript client and Go server where several LLMs can talk to each other and to you.",
 		liveLink: "https://trio-self.vercel.app",
+		shortDescription: "Lets you chat with multiple LLMs in the same chat. An LLM groupchat",
 		githubLink: "https://github.com/SomtoJF/trio-client",
 		technologies: ["TypeScript", "Go", "React", "Next.js", "LLMs"],
+	},
+	{
+		name: "Gocker",
+		description:
+			"A lightweight container runtime written in Go as a way to learn how isolation actually works. It runs on Ubuntu, nests inside Docker for development, and can drop you into an isolated shell with a simple run command.",
+		shortDescription: "A lightweight container runtime written in Go.",
+		githubLink: "https://github.com/SomtoJF/gocker",
+		technologies: ["Go", "Docker", "Makefile"],
 	},
 	{
 		name: "Academia",
@@ -31,13 +41,6 @@ const myProjects: Project[] = [
 			"TensorFlow",
 			"GraphQL",
 		],
-	},
-	{
-		name: "Gocker",
-		description:
-			"A lightweight container runtime written in Go as a way to learn how isolation actually works. It runs on Ubuntu, nests inside Docker for development, and can drop you into an isolated shell with a simple run command.",
-		githubLink: "https://github.com/SomtoJF/gocker",
-		technologies: ["Go", "Docker", "Makefile"],
 	},
 	{
 		name: "Gosh",

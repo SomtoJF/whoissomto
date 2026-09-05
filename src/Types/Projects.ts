@@ -3,6 +3,7 @@ interface Project {
 	description: string;
 	technologies: string[];
 	linkDescription?: string;
+	shortDescription?: string;
 	githubLink: string;
 	liveLink?: string;
 }
