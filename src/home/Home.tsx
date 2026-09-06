@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { GitHubCalendar } from "react-github-calendar";
 import myProjects from "@/data/Projects";
-import { GithubFilled, LinkedinFilled } from "@ant-design/icons";
+import { GithubFilled } from "@ant-design/icons";
 import myExperience from "@/data/Experience";
-import websiteImage from "../../public/website_image.jpeg";
 import footerImage from "../../public/footer_image.jpeg";
+import Header from "@/components/latest/header";
+import Footer from "@/components/latest/footer";
 
 export default function Home() {
   function getLogo(domain: string, size: number = 64) {
@@ -17,56 +18,8 @@ export default function Home() {
   return (
     <div className="w-screen font-body">
       <div className="max-w-2xl mx-auto p-4 space-y-4">
-        <div className="w-full overflow-hidden rounded-lg h-36 relative">
-          <Image
-            src={websiteImage}
-            alt="Home"
-            className="w-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-300"
-            fill
-          />
-        </div>
-
-        <hr className="border-gray-300" />
-
+        <Header />
         <div className="mt-4 ">
-          <div className="w-full gap-2 flex flex-row-reverse font-regular text-sm">
-            <Link
-              href="mailto:somtochukwujf@gmail.com"
-              className="border-b-2 text-sm"
-            >
-              mail
-            </Link>
-
-            <Link href="/notes" className="border-b-2 text-sm">
-              resume
-            </Link>
-
-            <Link href="/notes" className="border-b-2 text-sm">
-              blog
-            </Link>
-
-            <button>
-              <LinkedinFilled className="mr-1.5 w-3 h-3 mt-auto" />
-              <Link
-                href="https://www.linkedin.com/in/somtochukwu-francis-b8a236239"
-                target="_blank"
-                className="border-b-2 text-sm"
-              >
-                linkedin
-              </Link>
-            </button>
-
-            <button>
-              <GithubFilled className="mr-1.5 w-3 h-3 mt-auto" />
-              <Link
-                href="https://github.com/somtojf"
-                target="_blank"
-                className="border-b-2 text-sm"
-              >
-                github
-              </Link>
-            </button>
-          </div>
           <div className="w-full flex justify-between font-regular items-center">
             <h1 className="font-bold text-2xl">I'm Somtochukwu Francis </h1>
           </div>
@@ -169,16 +122,7 @@ export default function Home() {
 
         <hr className="border-gray-300" />
 
-        <div className="space-y-2">
-          <div className="w-full relative rounded-lg overflow-hidden grayscale hover:grayscale-0 object-cover object-center transition-all duration-300 h-36">
-            <Image
-              src={footerImage}
-              alt="Somtochukwu"
-              className="w-full object-cover object-center sm:object-bottom"
-              fill
-            />
-          </div>
-        </div>
+        <Footer />
       </div>
     </div>
   );
