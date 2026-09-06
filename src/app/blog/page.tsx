@@ -40,11 +40,7 @@ export default async function NotesIndexPage() {
         ) : null}
         {notes.length > 0 ? (
           <div className="">
-            <NoteSection
-              title="Personal"
-              notes={personal}
-              className="md:pr-12"
-            />
+            <NoteSection title="Personal" notes={personal} className="mb-4" />
             <NoteSection
               title="Professional"
               notes={professional}
@@ -66,18 +62,41 @@ function NoteSection({
   notes: NoteMeta[];
   className?: string;
 }) {
+  const shouldAddEmptyLines = notes.length < 10 && notes.length > 0;
+  const emptyLinesToAdd = shouldAddEmptyLines ? 3 : 0;
+
   return (
     <section className={className}>
       <h2 className="mb-2 font-regular text-lg font-bold text-gray-600">
         {title}
       </h2>
       {notes.length === 0 ? (
-        <p className="border-t border-grey py-6 font-header font-light text-charcoal">
-          Nothing here yet.
-        </p>
+        <>
+          <p className="border-y border-gray-300 py-2 w-full text-indigo-700 font-light font-regular">
+            Nothing here yet.
+          </p>
+          {Array.from({ length: 3 }).map((_, index) => (
+            <EmptyLines key={index} />
+          ))}
+        </>
       ) : (
-        notes.map((note) => <NoteCard key={note.path} note={note} />)
+        <>
+          {notes.map((note, index) => (
+            <NoteCard
+              key={note.path}
+              note={note}
+              isLast={index === notes.length - 1}
+            />
+          ))}
+          {Array.from({ length: emptyLinesToAdd }).map((_, index) => (
+            <EmptyLines key={`empty-${index}`} />
+          ))}
+        </>
       )}
     </section>
   );
+}
+
+function EmptyLines() {
+  return <p className="border-b border-gray-300 h-10.5"></p>;
 }

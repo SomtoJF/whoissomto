@@ -4,41 +4,38 @@ import { formatNoteDate } from "../../lib/notes/format";
 
 type NoteCardProps = {
   note: NoteMeta;
+  isLast?: boolean;
 };
 
-export default function NoteCard({ note }: NoteCardProps) {
+export default function NoteCard({ note, isLast }: NoteCardProps) {
+  const dateStr = note.date ? formatNoteDate(note.date) : "";
+  const title = note.title || "";
+  const description = note.description || "";
+
+  // Full text for tooltip
+  const fullText = `${dateStr}${dateStr ? " - " : ""}${title}${description ? ": " + description : ""}`;
+
   return (
-    <article className="">
-      <Link href={`/blog/${note.slug}`} className="group block no-underline">
-        {note.date ? (
-          <time
-            dateTime={note.date}
-            className="font-header text-sm font-light text-charcoal"
-          >
-            {formatNoteDate(note.date)}
-          </time>
-        ) : null}
-        <h2 className="mt-2 font-header group-hover:underline text-charcoal">
-          {note.title}
-        </h2>
-        {note.description ? (
-          <p className="mt-3 max-w-2xl font-header text-lg font-light leading-relaxed text-charcoal">
-            {note.description}
-          </p>
-        ) : null}
-      </Link>
-      {note.tags.length > 0 ? (
-        <ul className="mt-4 flex list-none flex-wrap gap-2 p-0">
-          {note.tags.map((tag) => (
-            <li
-              key={tag}
-              className="rounded-full border border-grey px-3 py-1 font-header text-xs font-light uppercase tracking-wide text-charcoal"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
-      ) : null}
-    </article>
+    <Link
+      href={`/blog/${note.slug}`}
+      className="block no-underline text-indigo-700 hover:text-indigo-900 font-regular font-light group"
+      title={fullText}
+    >
+      <p
+        className={`truncate text-indigo-700 font-regular py-2 border-t border-gray-300 ${isLast ? "border-b" : ""}`}
+      >
+        {dateStr && <span>{dateStr}</span>}
+        {dateStr && <span> - </span>}
+        <span className="text-red-600 group-hover:underline" title={title}>
+          {title}
+        </span>
+        {description && (
+          <>
+            <span>: </span>
+            <span title={description}>{description}</span>
+          </>
+        )}
+      </p>
+    </Link>
   );
 }
