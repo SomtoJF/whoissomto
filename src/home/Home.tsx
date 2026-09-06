@@ -4,7 +4,6 @@ import { GitHubCalendar } from "react-github-calendar";
 import myProjects from "@/data/Projects";
 import { GithubFilled } from "@ant-design/icons";
 import myExperience from "@/data/Experience";
-import footerImage from "../../public/footer_image.jpeg";
 import Header from "@/components/latest/header";
 import Footer from "@/components/latest/footer";
 

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import NoteCard from "@/components/latest/notecard";
 import NotesStatus from "@/components/notes/NotesStatus";
 import { getNotes } from "@/lib/notes/github";
@@ -32,7 +31,7 @@ export default async function NotesIndexPage() {
   const professional = notes.filter((note) => note.category === "professional");
 
   return (
-    <section className="mx-auto max-w-screen-xl pb-24 flex-1">
+    <section className="w-full pb-24 flex-1">
       <div className="mt-12">
         {errorMessage ? <NotesStatus message={errorMessage} /> : null}
         {!errorMessage && notes.length === 0 ? (
@@ -40,12 +39,12 @@ export default async function NotesIndexPage() {
         ) : null}
         {notes.length > 0 ? (
           <div className="">
-            <NoteSection title="Personal" notes={personal} className="mb-4" />
             <NoteSection
               title="Professional"
               notes={professional}
-              className=""
+              className="mb-4"
             />
+            <NoteSection title="Personal" notes={personal} />
           </div>
         ) : null}
       </div>
@@ -72,7 +71,7 @@ function NoteSection({
       </h2>
       {notes.length === 0 ? (
         <>
-          <p className="border-y border-gray-300 py-2 w-full text-indigo-700 font-light font-regular">
+          <p className="border-y border-gray-300 py-2 w-full text-black font-light font-regular">
             Nothing here yet.
           </p>
           {Array.from({ length: 3 }).map((_, index) => (
@@ -82,11 +81,12 @@ function NoteSection({
       ) : (
         <>
           {notes.map((note, index) => (
-            <NoteCard
+            <div
+              className={`py-2 border-t border-gray-300 ${index === notes.length - 1 ? "border-b" : ""}`}
               key={note.path}
-              note={note}
-              isLast={index === notes.length - 1}
-            />
+            >
+              <NoteCard note={note} />
+            </div>
           ))}
           {Array.from({ length: emptyLinesToAdd }).map((_, index) => (
             <EmptyLines key={`empty-${index}`} />
