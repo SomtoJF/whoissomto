@@ -71,8 +71,8 @@ function NoteSection({
       </h2>
       {notes.length === 0 ? (
         <>
-          <p className="border-y border-gray-300 py-2 w-full text-black font-light font-regular">
-            Nothing here yet.
+          <p className="border-y border-gray-300 pt-3 pb-0.5 w-full text-gray-600 font-light font-regular">
+            Nothing to see here.
           </p>
           {Array.from({ length: 3 }).map((_, index) => (
             <EmptyLines key={index} />
@@ -82,7 +82,7 @@ function NoteSection({
         <>
           {notes.map((note, index) => (
             <div
-              className={`py-2 border-t border-gray-300 ${index === notes.length - 1 ? "border-b" : ""}`}
+              className={`pt-3 pb-0.5 border-t border-gray-300 ${index === notes.length - 1 ? "border-b" : ""}`}
               key={note.path}
             >
               <NoteCard note={note} />
