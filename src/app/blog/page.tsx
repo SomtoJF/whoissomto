@@ -4,6 +4,7 @@ import NotesStatus from "@/components/notes/NotesStatus";
 import { getNotes } from "@/lib/notes/github";
 import type { NoteMeta } from "@/lib/notes/types";
 import Link from "next/link";
+import previewImage from "../../../public/footer_image.jpeg";
 
 export const revalidate = 60;
 
@@ -11,9 +12,10 @@ export const metadata: Metadata = {
   title: "Notes",
   description: "Trying to keep track of my thoughts and learnings.",
   openGraph: {
-    title: "Notes — Somto",
+    title: "Somtochukwu's Notes",
     description: "Trying to keep track of my thoughts and learnings.",
     type: "website",
+    images: [{ url: previewImage.src }],
   },
 };
 

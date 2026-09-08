@@ -5,6 +5,7 @@ import { formatNoteDate } from "@/lib/notes/format";
 import { getNoteOrNull, getNotes, resolveNoteAssets } from "@/lib/notes/github";
 import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
+import previewImage from "../../../../public/footer_image.jpeg";
 
 export const revalidate = 60;
 
@@ -23,22 +24,26 @@ export async function generateMetadata({
 
   const title = note.title;
   const description = note.description || "A note by Somto.";
-  const url = `${SITE_URL}/notes/${note.slug}`;
+  const url = `${SITE_URL}/blog/${note.slug}`;
 
   return {
     title,
     description,
     alternates: { canonical: url },
     openGraph: {
-      title: `${title} — Somto`,
+      title: `${title}`,
+      siteName: "Somtochukwu Francis",
       description,
       url,
       type: "article",
+      images: [{ url: previewImage.src }],
     },
     twitter: {
       card: "summary",
       title: `${title}`,
+      site: "@somtochukwu",
       description,
+      images: [{ url: previewImage.src }],
     },
   };
 }
