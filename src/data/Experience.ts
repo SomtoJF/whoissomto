@@ -48,7 +48,7 @@ const myExperience: Experience[] = [
 	{
 		company: "Sales Copilots",
 		location: "Remote, US",
-		period: { start: "November 2024", end: "August 2026" },
+		period: { start: "October 2024", end: "August 2026" },
 		description:
 			"Worked as a founding engineer building core client and server-side components for an AI sales prospecting tool.",
 		achievements: [

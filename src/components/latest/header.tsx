@@ -25,9 +25,9 @@ export default function Header({ isBlog }: { isBlog?: boolean }) {
           mail
         </Link>
 
-        <Link href="/notes" className="border-b-2 text-sm">
+        {/* <Link href="/notes" className="border-b-2 text-sm">
           resume
-        </Link>
+        </Link> */}
 
         {!isBlog && (
           <Link href="/blog" className="border-b-2 text-sm">

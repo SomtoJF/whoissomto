@@ -45,26 +45,33 @@ export default function Home() {
           <ul className="list-none text-gray-700 space-y-4">
             {experienceList.map((experience) => (
               <li key={experience.company} className="flex-col space-y-1">
-                <div className="flex items-center gap-2">
-                  {experience.site && (
-                    <Image
-                      src={getLogo(experience.site)}
-                      alt={experience.company}
-                      width={64}
-                      height={64}
-                      className="inline-block w-5 h-5 rounded-sm"
-                    />
-                  )}
-                  <Link
-                    href={experience.site || "#"}
-                    target="_blank"
-                    className="border-b-2"
-                  >
-                    {experience.company}
-                  </Link>
-                  <span className="text-gray-500 text-sm">
-                    {experience.position}
-                  </span>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:space-between w-full">
+                  <div className="flex items-center gap-2">
+                    {experience.site && (
+                      <Image
+                        src={getLogo(experience.site)}
+                        alt={experience.company}
+                        width={64}
+                        height={64}
+                        className="inline-block w-5 h-5 rounded-sm"
+                      />
+                    )}
+                    <Link
+                      href={experience.site || "#"}
+                      target="_blank"
+                      className="border-b-2"
+                    >
+                      {experience.company}
+                    </Link>
+                    <span className="text-gray-500 text-sm">
+                      {experience.position}
+                    </span>
+                  </div>
+                  <p className="ml-auto">
+                    <span className="text-gray-500 text-xs">
+                      {experience.period.start} — {experience.period.end}
+                    </span>
+                  </p>
                 </div>
                 <p className="text-gray-500 text-sm">
                   {experience.description}
