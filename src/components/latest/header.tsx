@@ -10,7 +10,7 @@ export default function Header({ isBlog }: { isBlog?: boolean }) {
         <Image
           src={websiteImage}
           alt="Home"
-          className="w-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-300"
+          className="w-full object-cover object-center"
           fill
         />
       </div>
