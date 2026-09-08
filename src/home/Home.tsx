@@ -45,7 +45,7 @@ export default function Home() {
           <ul className="list-none text-gray-700 space-y-4">
             {experienceList.map((experience) => (
               <li key={experience.company} className="flex-col space-y-1">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:space-between w-full">
+                <div className="flex flex-col flex-start sm:flex-row sm:items-center sm:space-between w-full">
                   <div className="flex items-center gap-2">
                     {experience.site && (
                       <Image
@@ -67,7 +67,7 @@ export default function Home() {
                       {experience.position}
                     </span>
                   </div>
-                  <p className="ml-auto">
+                  <p className="sm:ml-auto">
                     <span className="text-gray-500 text-xs">
                       {experience.period.start} — {experience.period.end}
                     </span>
